@@ -6,66 +6,92 @@
 </head>
 <body>
 
-<!-- It provides more structure. -->
-<h1>Hello, World! <span>25-02-2020</span> </h1>
-<p>
-    Understanding HTML is <em>really</em> <strong>important</strong>!
-</p>
-<p>
-    Understanding HTML is
-    <em>
-        <strong>
-            really important
-        </strong>
-    </em>!
-</p>
-<main>
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit.<br> At autem culpa delectus deserunt, dolore dolores eligendi eos et exercitationem illum laborum magnam magni molestias pariatur quis ratione reprehenderit sunt tempore.
-    </p>
-</main>
-<hr>
-<div>
-    <ol>
-        <li>Apples</li>
-        <li>Cherries</li>
-        <li>Bananas</li>
-    </ol>
+<header>
+    <!-- It provides more structure. -->
+    <h1>Hello, World! <span>25-02-2020</span></h1>
+</header>
+
+<nav>
     <ul>
-        <li>Java</li>
-        <li>JavaScript</li>
-        <li>Python</li>
-        <li>
-            <a href="https://www.php.net/" target="_blank">PHP</a>
-        </li>
+        <li><a href="#">Intro</a></li>
+        <li><a href="#">HTML</a></li>
     </ul>
-</div>
-<hr>
-<div>
-    <!-- Image Hotlink -->
-    <img src="https://www.humanesociety.org/sites/default/files/styles/1240x698/public/2019/02/dog-451643.jpg?h=bf654dbc&itok=MQGvBmuo" alt="picture of a dog" width="100%">
-    <!-- local file -->
-    <img src="imgs/puppy.jpg" alt="picture of a puppy" width="100%">
-</div>
-<div>
-    <table border="1">
-      <tr>
-          <th>Product</th>
-          <th>Price</th>
-          <th>Vegan</th>
-      </tr>
-      <tr>
-          <td>Iced Tea</td>
-          <td>$2.99</td>
-          <td>Yes</td>
-      </tr>
-      <tr>
-          <td>Hot-Dog</td>
-          <td>$5.99</td>
-          <td>No</td>
-      </tr>
-    </table>
-</div>
+</nav>
+
+<main id="main-content">
+
+    <article>
+        Understanding HTML is <em>really</em> <strong>important</strong>!
+    </article>
+    <article>
+        Understanding HTML is
+        <em>
+            <strong>
+                really important
+            </strong>
+        </em>!
+    </article>
+
+    <section>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.<br> At autem culpa delectus deserunt, dolore dolores
+        eligendi eos et exercitationem illum laborum magnam magni molestias pariatur quis ratione reprehenderit sunt
+        tempore.
+    </section>
+
+
+    <hr>
+
+    <div>
+        <ol>
+            <li>Apples</li>
+            <li>Cherries</li>
+            <li>Bananas</li>
+        </ol>
+        <ul>
+            <li>Java</li>
+            <li>JavaScript</li>
+            <li>Python</li>
+            <li>
+                <a href="https://www.php.net/" target="_blank">PHP</a>
+            </li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <div>
+        <!-- Image Hotlink -->
+        <img src="https://www.humanesociety.org/sites/default/files/styles/1240x698/public/2019/02/dog-451643.jpg?h=bf654dbc&itok=MQGvBmuo"
+             alt="picture of a dog" width="100%">
+        <!-- local file -->
+        <img src="imgs/puppy.jpg" alt="picture of a puppy" width="100%">
+    </div>
+
+    <div>
+        <table border="1">
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Vegan</th>
+            </tr>
+            <tr>
+                <td>Iced Tea</td>
+                <td>$2.99</td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <td>Hot-Dog</td>
+                <td>$5.99</td>
+                <td>No</td>
+            </tr>
+        </table>
+    </div>
+
+</main>
+
+<footer>
+    Secondary links and copyright notices
+</footer>
 
 </body>
 </html>
