@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>American Airlines</title>
+</head>
+<body>
+<form method="post" action="https://request-inspector.glitch.me/">
+
+    <h4>Flight</h4>
+
+    <div>
+        <label for="round-trip">
+            <input id="round-trip" type="radio" value="yes" name="round trip">Round trip
+        </label>
+        <label for="one-way">
+            <input id="one-way" type="radio" value="yes" name="one way">One way
+        </label>
+        <label for="redeem-miles">
+            <input id="redeem-miles" type="checkbox" value="yes" name="redeem miles">Redeem Miles
+        </label>
+    </div>
+
+    <br>
+
+    <div>
+        <span>From</span>
+        <br>
+
+        <select name="from" id="from">
+            <option value=""></option>
+            <option value="dfw">DFW</option>
+            <option value="lax">LAX</option>
+            <option value="dfw">JFK</option>
+        </select>
+
+        <br>
+
+        <span>To</span>
+
+        <br>
+
+        <select id="to" name="to">
+            <option value=""></option>
+            <option value="dfw">DFW</option>
+            <option value="lax">LAX</option>
+            <option value="dfw">JFK</option>
+        </select>
+
+        <br>
+
+        <span>Number of passengers</span>
+
+        <br>
+
+        <select id="number-of-passengers" name="number of passengers">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+        </select>
+    </div>
+    <br>
+    <div>
+        <span>Depart</span>
+
+        <br>
+
+        <label for="depart">
+            <input id="depart" type="date" name="depart">
+        </label>
+
+        <br>
+
+        <span>Return</span>
+
+        <br>
+
+        <label for="return">
+            <input id="return" type="date" name="return">
+        </label>
+    </div>
+
+    <br>
+
+    <div>
+        <button type="submit">Search</button>
+    </div>
+
+</form>
+
+</body>
+</html>
