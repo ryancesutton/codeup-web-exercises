@@ -4,7 +4,44 @@ line
 comment
 */
 
-.fancy-header {
-    color: purple; /* single line comment */
-    text-decoration: underline;
+.main-header {
+    text-align: center;
 }
+
+h2 {
+    color: #4c4b49;
+    text-decoration: underline;
+    text-align: center;
+}
+
+
+body {
+    background-image: url("https://prayermissionary.org/wp-content/uploads/2016/03/texture-pattern-light-background-gradient-light-texture_1920x1200_sc.jpg");
+    font-family: AppleGothic;
+}
+
+ul {
+    list-style: square;
+}
+
+
+table {
+    border-style: groove;
+    font-family: fantasy;
+}
+
+
+a:link {
+    color: darkred;
+}
+
+a:hover {
+    background-color: coral;
+}
+
+a:visited {
+    background-color: olivedrab;
+}
+
+
+
