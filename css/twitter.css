@@ -44,9 +44,25 @@ a {
 .nav-link:hover {
     color: var(--link-color);
 }
+.nav-item {
+    display: inline-block;
+    padding: 1.5em;
+}
 .profile {
     background: var(--light-bg);
     height: 80px;
+}
+.profile-image {
+    position: absolute;
+    top: 245px;
+}
+.profile-form {
+    float: right;
+    line-height: 80px;
+}
+.container {
+    display: inline-block;
+    padding: 2em;
 }
 .btn {
     border: 1px solid var(--main-link-color);
@@ -70,45 +86,25 @@ a {
 .text-muted {
     color: var(--main-link-color);
 }
-.nav-item {
-    display: inline-block;
-    padding: 1.5em;
-}
-.profile-image {
-    position: absolute;
-    top: 245px;
-}
-.profile-form {
-    float: right;
-    line-height: 80px;
-}
-
 .profile-details {
     width: calc(25% - 1em);
     margin: 0 .5em;
     float: left;
-    padding: 0 2em;
 }
 .timeline {
     width: calc(50% - 1em);
     margin: 0 .5em;
     float: left;
-    padding: 0 2em;
 }
 .who-to-follow {
     width: calc(25% - 1em);
     margin: 0 .5em;
-    float: right;
-    padding: 0 2em;
-}
-.container {
-    display: inline-block;
-    padding: 2em 0;
+    float: left;
 }
 .media {
     width: 100%;
-    background-color: #FFF;
-    border-bottom: 1px solid #DDD;
+    background-color: var(--light-bg);
+    border-bottom: 1px solid var(--separator-color);
     padding: .5em;
     overflow: auto;
 }
@@ -122,11 +118,11 @@ a {
     width: calc(100% - 50px);
 }
 .profile-items {
-    list-style: none;
-    padding: none;
+    list-style-type: none;
+    padding: 0;
 }
 .profile-entry {
-    margin-top: .5em;
+    margin: .5em;
 }
 
 
