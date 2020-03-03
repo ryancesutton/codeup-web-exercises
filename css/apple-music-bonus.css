@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.top-nav {
+    background-color: rgba(0, 0, 0, 0.8);
+    font-size: 1em;
+    font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+    font-weight: light;
+    width: 100%;
+    overflow: hidden;
+    z-index: 100;
+}
+.nav {
+    list-style-type: none;
+    padding: 10px 315px;
+}
+.nav-link {
+    display: inline-block;
+    margin: 0 15px;
+}
+.nav a {
+    text-decoration: none;
+    color: lightgrey;
+}
+.nav-link a:hover {
+    color: white;
+}
+.main-photo {
+    background-image: url("https://www.apple.com/newsroom/images/live-action/new-store-opening/vienna_apple_store_exterior_022118_big.jpg.large_2x.jpg ");
+    min-height: 500px;
+    background-repeat: no-repeat;
+    z-index: 50;
+    opacity: 0.8;
+}
+#search {
+    font-size: 1em;
+    font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+}
+input {
+    height: 40px;
+    width: 200px;
+    text-align: center;
+}
