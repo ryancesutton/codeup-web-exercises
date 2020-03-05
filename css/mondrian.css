@@ -2,12 +2,15 @@
     box-sizing: border-box;
 }
 
-body {
-    margin: 0;
+.wrapper {
+    margin: auto;
+    box-shadow: 0 0 15px grey;
+    padding: 8px;
+    border-radius: 10px;
+    width: 515px;
 }
 
 .grid {
-    margin: 10px auto;
     background-color: black;
     border: 5px solid black;
     display: grid;
