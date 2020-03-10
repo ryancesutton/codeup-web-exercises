@@ -1,0 +1,36 @@
+
+.navbar-light .nav-item{
+    padding: 0 10px;
+}
+
+.collapse a {
+    color: #8d8d8d;
+}
+
+.collapse a:hover {
+    background-color: #e7e7e7;
+}
+
+.navbar-light .nav-item:hover {
+    background-color: #e7e7e7;
+}
+
+
+.navbar-light .nav-item .btn {
+    border-color: #8d8d8d;
+    color: #8d8d8d;
+    background-color: white;
+}
+
+.jumbotron {
+    background-image: url("../imgs/pizza.png");
+    background-repeat: no-repeat;
+}
+
+div.welcome {
+    text-align: center;
+    background-color: white;
+    opacity: 0.7;
+}
+
+
