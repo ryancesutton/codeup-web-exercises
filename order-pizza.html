@@ -42,49 +42,172 @@
         </div>
     </div>
     <h2>Build your own pizza!</h2>
-    <ul class="nav nav-tabs">
+    <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">
-            <a class="nav-link active" href="#"><span class="badge badge-secondary">1</span>Active</a>
+            <a class="nav-link active" id="size-tab" data-toggle="tab" role="tab" href="#size-type" aria-controls="home"
+               aria-selected="true">
+                <span class="badge badge-secondary">1</span>
+                Size and crust</a>
+
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#"><span class="badge badge-secondary">2</span>Link</a>
+            <a class="nav-link" id="cheese-tab" data-toggle="tab" role="tab" href="#cheese-crust" aria-controls="home"
+               aria-selected="false">
+                <span class="badge badge-secondary">2</span>
+                Cheese and sauce</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#"><span class="badge badge-secondary">3</span>Link</a>
+            <a class="nav-link" id="toppings-tab" data-toggle="tab" role="tab" href="#toppings" aria-controls="home"
+               aria-selected="false">
+                <span class="badge badge-secondary">3</span>
+                Toppings</a>
         </li>
     </ul>
-    <div class="card card-outer">
-        <div class="card-header">
-            Featured
+    <div class="card tab-content" id="size-type">
+        <div class="tab-pane fade show active" id=""></div>
+        <div class="card-header blue">
+            Size and crust
         </div>
         <div class="card-body">
             <div class="card">
                 <div class="card-header">
-                    Featured
+                    Hand Tossed
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <p class="card-text">Garlic seasoned crust with a rich, buttery taste.</p>
                     <ul class="list-group">
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <label for="small-hand">
+                            <li class="list-group-item"><input id="small-hand" type="radio" name="size-crust">Small
+                                (10")
+                            </li>
+                        </label>
+                        <label for="med-hand">
+                            <li class="list-group-item"><input id="med-hand" type="radio" name="size-crust">Medium (12")
+                            </li>
+                        </label>
                     </ul>
                 </div>
             </div>
             <div class="card">
                 <div class="card-header">
-                    Featured
+                    Crispy Thin
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <p class="card-text">Thin enough for optimum crispy to crunchy ration.</p>
                     <ul class="list-group">
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <label for="med-thin">
+                            <li class="list-group-item"><input id="med-thin" type="radio" name="size-crust">Medium (12")
+                            </li>
+                        </label>
+                        <label for="large-thin">
+                            <li class="list-group-item"><input id="large-thin" type="radio" name="size-crust">Large
+                                (14")
+                            </li>
+                        </label>
                     </ul>
                 </div>
             </div>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <footer>
+                <a href="#" class="btn btn-primary" id="next">Next step ></a>
+            </footer>
+        </div>
+    </div>
+    <div class="card tab-content" id="cheese-crust">
+        <div class="tab-pane fade show active" id=""></div>
+        <div class="card-header blue">
+            Cheese and sauce
+        </div>
+        <div class="card-body">
+            <div class="card">
+                <div class="card-header">
+                    Hand Tossed
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Garlic seasoned crust with a rich, buttery taste.</p>
+                    <ul class="list-group">
+                        <label for="small-hand">
+                            <li class="list-group-item"><input id="small-hand" type="radio" name="size-crust">Small
+                                (10")
+                            </li>
+                        </label>
+                        <label for="med-hand">
+                            <li class="list-group-item"><input id="med-hand" type="radio" name="size-crust">Medium (12")
+                            </li>
+                        </label>
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    Crispy Thin
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Thin enough for optimum crispy to crunchy ration.</p>
+                    <ul class="list-group">
+                        <label for="med-thin">
+                            <li class="list-group-item"><input id="med-thin" type="radio" name="size-crust">Medium (12")
+                            </li>
+                        </label>
+                        <label for="large-thin">
+                            <li class="list-group-item"><input id="large-thin" type="radio" name="size-crust">Large
+                                (14")
+                            </li>
+                        </label>
+                    </ul>
+                </div>
+            </div>
+            <footer>
+                <a href="#" class="btn btn-primary" id="next">Next step ></a>
+            </footer>
+        </div>
+    </div>
+    <div class="card tab-content" id="toppings">
+        <div class="tab-pane fade show active"></div>
+        <div class="card-header blue">
+            Toppings
+        </div>
+        <div class="card-body">
+            <div class="card">
+                <div class="card-header">
+                    Hand Tossed
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Garlic seasoned crust with a rich, buttery taste.</p>
+                    <ul class="list-group">
+                        <label for="small-hand">
+                            <li class="list-group-item"><input id="small-hand" type="radio" name="size-crust">Small
+                                (10")
+                            </li>
+                        </label>
+                        <label for="med-hand">
+                            <li class="list-group-item"><input id="med-hand" type="radio" name="size-crust">Medium (12")
+                            </li>
+                        </label>
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    Crispy Thin
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Thin enough for optimum crispy to crunchy ration.</p>
+                    <ul class="list-group">
+                        <label for="med-thin">
+                            <li class="list-group-item"><input id="med-thin" type="radio" name="size-crust">Medium (12")
+                            </li>
+                        </label>
+                        <label for="large-thin">
+                            <li class="list-group-item"><input id="large-thin" type="radio" name="size-crust">Large
+                                (14")
+                            </li>
+                        </label>
+                    </ul>
+                </div>
+            </div>
+            <footer>
+                <a href="#" class="btn btn-primary" id="next">Next step ></a>
+            </footer>
         </div>
     </div>
 </div>
