@@ -111,10 +111,25 @@
     // Exercise 15
     // Create a function that generates and returns a random number between 0 and 10
     function getRandomNumber() {
-        return Math.ceil(Math.random() * 10);
+        return Math.ceil(Math.random() * 16);
     }
 
     console.log(getRandomNumber());
+
+    // Exercise 16
+    // Create an array with your classmates names in it.
+    var classmates = ['Moriah', 'Ramon', 'Jacob', 'Esai', 'Emily', 'Evelyn', 'Roshan', 'Nayoung','Delayne', 'Sung', 'Val', 'Tyler', 'Rex', 'Ron', 'Sarah'];
+
+    console.log('classmates', classmates);
+
+    // Exercise 17
+    // Create a function that returns a random item from an array.
+    function getRandomItem(array) {
+        return array[getRandomNumber()];
+
+    }
+
+    console.log('getRandomItem(classmates): ', getRandomItem(classmates));
 </script>
 </body>
 </html>
