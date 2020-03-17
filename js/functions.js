@@ -9,9 +9,11 @@
  * > sayHello("codeup") // returns "Hello, codeup!"
  */
 
-    function sayHello(name){
+    function sayHello(name) {
         console.log('Hello,',name,'!');
-}
+};
+
+    sayHello('Ry');
 
 /**
  * TODO:
@@ -32,8 +34,8 @@
  * console.
  */
 
-    var myName = 'Ry';
-        sayHello(myName);
+    // var myName = 'Ry';
+    //     sayHello(myName);
 
 // Don't modify the following line, it generates a random number between 1 and 3
 // and stores it in a variable named random
@@ -57,9 +59,11 @@ var random = Math.floor((Math.random() * 3) + 1);
  * number)
  */
 
-    function isTwo(x) {
-
-}
+//     function isTwo(number) {
+//        var numberIsTwo = false;
+//        numberIsTwo = number !== 2;
+// };
+//     console.log(isTwo(random));
 
 /**
  * TODO:
@@ -73,6 +77,10 @@ var random = Math.floor((Math.random() * 3) + 1);
  * > calculateTip(0.15, 33.42) // returns 5.013
  */
 
+//     function calculateTip(x , y) {
+//         var tip = x * y;
+// }
+//     console.log(calculateTip(.40 , 3));
 /**
  * TODO:
  * Use prompt and alert in combination with your calculateTip function to
