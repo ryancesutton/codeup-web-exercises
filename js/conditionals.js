@@ -34,24 +34,26 @@
 
 
     function yourNumber(number) {
-    confirm('Would you like to enter a number?');
-    var number = prompt('Enter your number: ');
-    number = parseInt(number);
-    if (number % 2 === 0) {
-        alert('Your number is even!');
-    } else if (number % 2 === 1) {
-        alert('Your number is odd!');
+        confirm('Would you like to enter a number?');
+        var number = prompt('Enter your number: ');
+        number = parseInt(number);
+        if (number % 2 === 0) {
+            alert('Your number is even!');
+        } else if (number % 2 === 1) {
+            alert('Your number is odd!');
+        }
+
+        alert('Your number plus 100 is: ' + (number + 100));
+
+        if (number < 0) {
+            alert('Your number number is negative!')
+        } else if (number > 0) {
+            alert('Your number is positive!');
+        }
     }
 
-    alert('Your number plus 100 is: ' + (number + 100));
-
-    if (number < 0) {
-        alert('Your number number is negative!')
-    } else if (number > 0) {
-        alert('Your number is positive!');
-    }
-}
     yourNumber();
+
 /* ########################################################################## */
 
 /**
@@ -72,18 +74,18 @@
  * console.logging the function's return value
  */
 
-    function analyzeColor(colorName){
+    function analyzeColor(colorName) {
 
-        if (colorName === 'blue'){
+        if (colorName === 'blue') {
             console.log('blue is the color of the sky');
-        } else if (colorName === 'red'){
+        } else if (colorName === 'red') {
             console.log('Strawberries are red');
-        } else if (colorName === 'cyan'){
+        } else if (colorName === 'cyan') {
             console.log('I don\'t know anything about cyan');
         } else {
             console.log('Color is not defined above');
         }
-}
+    }
 
     analyzeColor('blue');
     analyzeColor('red');
@@ -102,7 +104,7 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Pass the `randomColor` variable to your function and console.log the results.
  * You should see a different message every time you refresh the page
  */
-
+    analyzeColor(randomColor);
 /**
  * TODO:
  * Refactor your above function to use a switch-case statement
@@ -114,6 +116,18 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * user to your `analyzeColor` function. Alert the return value from your
  * function to show it to the user.
  */
+    function analyzeColor(colorName) {
+        var colorName = prompt('Enter your color: ');
+        if (colorName === 'blue') {
+            alert('blue is the color of the sky');
+        } else if (colorName === 'red') {
+            alert('Strawberries are red');
+        } else if (colorName === 'cyan') {
+            alert('I don\'t know anything about cyan');
+        } else {
+            alert('Color is not defined above');
+        }
+    }
 
 /* ########################################################################## */
 
@@ -137,6 +151,26 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * return value.
  */
 
+//     function calculateTotal(luckyNumber , totalAmount) {
+//
+//         if (luckyNumber === 0){
+//             return totalAmount;
+//         } else if (luckyNumber === 1) {
+//             return totalAmount - (totalAmount * .10);
+//         } else if (luckyNumber === 2) {
+//             return totalAmount - (totalAmount * .25);
+//         } else if (luckyNumber === 3) {
+//             return totalAmount - (totalAmount * .35);
+//         } else if (luckyNumber === 4) {
+//             return totalAmount - (totalAmount * .50);
+//         } else if (luckyNumber === 5) {
+//             return totalAmount - totalAmount;
+//         }
+// }
+//     console.log('Your total is: ' + calculateTotal(0 , 100));
+//     console.log('Your total is: ' + calculateTotal(4 , 100));
+//     console.log('Your total is: ' + calculateTotal(5 , 100));
+
 /**
  * TODO:
  * Uncomment the line below to generate a random number between 0 and 6.
@@ -145,4 +179,36 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * price before the discount was, and what their price after the discount is.
  */
 // Generate a random number between 0 and 6
-// var luckyNumber = Math.floor(Math.random() * 6);
+
+    function calculateTotal(luckyNumber , totalAmount) {
+    var luckyNumber = Math.floor(Math.random() * 6);
+    var totalAmount = prompt('What is your total bill? ');
+    totalAmount = parseInt(totalAmount);
+        if (luckyNumber === 0) {
+            alert('Your lucky number was zero');
+            alert('Price before discount: ' + totalAmount);
+            alert('Price after discount: ' + totalAmount);
+        } else if (luckyNumber === 1) {
+            alert('Your lucky number was one');
+            alert('Price before discount: ' + totalAmount);
+            alert('Price after discount: ' + (totalAmount - (totalAmount * .10)));
+        } else if (luckyNumber === 2) {
+            alert('Your lucky number was two');
+            alert('Price before discount: ' + totalAmount);
+            alert('Price after discount: ' + (totalAmount - (totalAmount * .25)));
+        } else if (luckyNumber === 3) {
+            alert('Your lucky number was three');
+            alert('Price before discount: ' + totalAmount);
+            alert('Price after discount: ' + (totalAmount - (totalAmount * .35)));
+        } else if (luckyNumber === 4) {
+            alert('Your lucky number was four');
+            alert('Price before discount: ' + totalAmount);
+            alert('Price after discount: ' + (totalAmount - (totalAmount * .50)));
+        } else if (luckyNumber === 5) {
+            alert('Your lucky number was five');
+            alert('Price before discount: ' + totalAmount);
+            alert('Price after discount: ' + totalAmount - totalAmount);
+        }
+    }
+
+    calculateTotal();
