@@ -16,39 +16,45 @@
  * Can you refactor your code to use functions?
  */
 
-    // confirm('Would you like to enter a number?');
-    // var enterNumber = prompt('Enter your number:');
-    // enterNumber = parseInt(enterNumber);
-    // if (enterNumber % 2 === 0) {
-    //     alert('Your number is even!');
-    // } else if (enterNumber % 2 === 1) {
-    //     alert('Your number is odd!');
-    // }
-    // alert(enterNumber + 100);
+    // var willEnterNumber = confirm('Would you like to enter a number?');
+    // if (willEnterNumber) {
+    //     alert('Entering a number...');
     //
-    // if (enterNumber < 0) {
-    //     alert('Your number number is negative!')
-    // } else if (enterNumber > 0) {
-    //     alert('Your number is positive!');
+    //     var enterNumber = prompt('Enter your number:');
+    //     enterNumber = parseInt(enterNumber);
+    //     if (enterNumber % 2 === 0) {
+    //         alert('Your number is even!');
+    //     } else if (enterNumber % 2 === 1) {
+    //         alert('Your number is odd!');
+    //     }
+    //     alert(enterNumber + 100);
+    //
+    //     if (enterNumber < 0) {
+    //         alert('Your number number is negative!')
+    //     } else if (enterNumber > 0) {
+    //         alert('Your number is positive!');
+    //     }
     // }
-
 
     function yourNumber(number) {
-        confirm('Would you like to enter a number?');
-        var number = prompt('Enter your number: ');
-        number = parseInt(number);
-        if (number % 2 === 0) {
-            alert('Your number is even!');
-        } else if (number % 2 === 1) {
-            alert('Your number is odd!');
-        }
+        var willEnterNumber = confirm('Would you like to enter a number?');
+        if (willEnterNumber) {
+            alert('Entering a number...')
+            var number = prompt('Enter your number: ');
+            number = parseInt(number);
+            if (number % 2 === 0) {
+                alert('Your number is even!');
+            } else if (number % 2 === 1) {
+                alert('Your number is odd!');
+            }
 
-        alert('Your number plus 100 is: ' + (number + 100));
+            alert('Your number plus 100 is: ' + (number + 100));
 
-        if (number < 0) {
-            alert('Your number number is negative!')
-        } else if (number > 0) {
-            alert('Your number is positive!');
+            if (number < 0) {
+                alert('Your number number is negative!')
+            } else if (number > 0) {
+                alert('Your number is positive!');
+            }
         }
     }
 
@@ -77,20 +83,21 @@
     function analyzeColor(colorName) {
 
         if (colorName === 'blue') {
-            console.log('blue is the color of the sky');
+            return 'blue is the color of the sky';
         } else if (colorName === 'red') {
-            console.log('Strawberries are red');
+            return 'Strawberries are red';
         } else if (colorName === 'cyan') {
-            console.log('I don\'t know anything about cyan');
+            return 'I don\'t know anything about cyan';
         } else {
-            console.log('Color is not defined above');
+            return 'Color is not defined above';
         }
     }
 
-    analyzeColor('blue');
-    analyzeColor('red');
-    analyzeColor('cyan');
-    analyzeColor('green');
+    console.log(analyzeColor('blue'));
+    console.log(analyzeColor('red'));
+    console.log(analyzeColor('cyan'));
+    console.log(analyzeColor('green'));
+
 
 // Don't change the next two lines!
 // These lines create two variables for you:
@@ -104,12 +111,29 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Pass the `randomColor` variable to your function and console.log the results.
  * You should see a different message every time you refresh the page
  */
-    analyzeColor(randomColor);
+    console.log(analyzeColor(randomColor));
 /**
  * TODO:
  * Refactor your above function to use a switch-case statement
  */
+    function analyzeColorSwitch(colorName) {
+    switch (colorName) {
+        case "blue":
+            return 'blue is the color of the sky';
+            break;
 
+        case 'red':
+            return 'Strawberries are red';
+            break;
+
+        case 'cyan':
+            return 'I don\'t know anything about cyan';
+            break;
+
+        default:
+            return 'Color is not defined above';
+    }
+}
 /**
  * TODO:
  * Prompt the user for a color when the page loads, and pass the input from the
@@ -151,25 +175,25 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * return value.
  */
 
-//     function calculateTotal(luckyNumber , totalAmount) {
-//
-//         if (luckyNumber === 0){
-//             return totalAmount;
-//         } else if (luckyNumber === 1) {
-//             return totalAmount - (totalAmount * .10);
-//         } else if (luckyNumber === 2) {
-//             return totalAmount - (totalAmount * .25);
-//         } else if (luckyNumber === 3) {
-//             return totalAmount - (totalAmount * .35);
-//         } else if (luckyNumber === 4) {
-//             return totalAmount - (totalAmount * .50);
-//         } else if (luckyNumber === 5) {
-//             return totalAmount - totalAmount;
-//         }
-// }
-//     console.log('Your total is: ' + calculateTotal(0 , 100));
-//     console.log('Your total is: ' + calculateTotal(4 , 100));
-//     console.log('Your total is: ' + calculateTotal(5 , 100));
+    function calculateTotal(luckyNumber , totalAmount) {
+
+        if (luckyNumber === 0){
+            return totalAmount;
+        } else if (luckyNumber === 1) {
+            return totalAmount - (totalAmount * .10);
+        } else if (luckyNumber === 2) {
+            return totalAmount - (totalAmount * .25);
+        } else if (luckyNumber === 3) {
+            return totalAmount - (totalAmount * .35);
+        } else if (luckyNumber === 4) {
+            return totalAmount - (totalAmount * .50);
+        } else if (luckyNumber === 5) {
+            return totalAmount - totalAmount;
+        }
+}
+    console.log('Your total is: ' + calculateTotal(0 , 100));
+    console.log('Your total is: ' + calculateTotal(4 , 100));
+    console.log('Your total is: ' + calculateTotal(5 , 100));
 
 /**
  * TODO:
