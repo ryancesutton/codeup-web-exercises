@@ -24,16 +24,25 @@
      * string, and <li> tags around each planet.
      */
 
-    var planetBreak = planetsArray.join('<br>');
-    console.log(planetBreak);
+    // var planetBreak = planetsArray.join('<br>');
+    // console.log(planetBreak);
+    //
+    // //BONUS
+    //
+    // planetsArray.unshift('<ul>');
+    // planetsArray.push('</ul>');
+    //
+    // var bonusString = planetsArray.join('<li>');
+    //
+    // console.log(bonusString);
 
-    //BONUS
+    var planetList = '<ul><li>';
 
-    planetsArray.unshift('<ul>');
-    planetsArray.push('</ul>');
+    planetList += planetsArray.join('</li><li>');
 
-    var bonusString = planetsArray.join('<li>');
+    planetList += '</li></ul>';
 
-    console.log(bonusString);
+    console.log(planetList);
+
 
 })();
