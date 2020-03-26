@@ -135,10 +135,29 @@
     // Exercise 18
     // Create a function that prints a list of names randomly from the apex array.
     // TODO: Make sure that there is no duplicates
+
+    function getRandomFromRange(min, max) {
+        return Math.floor(Math.random() * (max - min) + min);
+    }
+
     function generateMicrowaveList(){
-        for (var x = 0; x < classmates.length; x++){
-            console.log('Index" ' + x + ' ' + getRandomItem(classmates));
-        }
+        // for (var x = 0; x < classmates.length; x++){
+
+        var remainingClassmates = classmates.slice();
+
+
+            classmates.forEach(function(element, index) {
+                    // Creating a random between 0 and what students we have left
+                    var randomNumber = getRandomFromRange(0, remainingClassmates.length);
+                    // Get the random student from the remaining classmates array
+                    var classMateRemoved = remainingClassmates[randomNumber];
+                    // Message for result
+                    console.log((index+1) + ': ', classMateRemoved + ' Goes Next');
+                    // Looking for the index of the classmateRemoved and delete it
+                    remainingClassmates.splice(remainingClassmates.indexOf(classMateRemoved), 1);
+
+
+        });
     }
 
     generateMicrowaveList();
