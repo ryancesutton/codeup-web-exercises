@@ -30,10 +30,10 @@
      */
 
     person.sayHello = function () {
-        console.log("Hello from " + person.firstName + ' ' + person.lastName +'!');
+        return "Hello from " + person.firstName + ' ' + person.lastName +'!';
     };
 
-    person.sayHello();
+    console.log(person.sayHello());
 
 
 
@@ -57,16 +57,16 @@
         {name: 'George', amount: 320}
     ];
 
-    shoppers.forEach(function (shoppers) {
-       if (shoppers.amount > 200){
-           var discount = shoppers.amount * .12;
-           console.log('Name: ' + shoppers.name);
-           console.log('Amount before discount: $' + shoppers.amount);
+    shoppers.forEach(function (shopper) {
+       if (shopper.amount > 200){
+           var discount = shopper.amount * .12;
+           console.log('Name: ' + shopper.name);
+           console.log('Amount before discount: $' + shopper.amount);
            console.log('Discount: $' + discount);
-           console.log('Amount after discount: $' + (shoppers.amount -  discount));
+           console.log('Amount after discount: $' + (shopper.amount -  discount));
        } else {
-           console.log('Name: ' + shoppers.name);
-           console.log(' Your total is: $' + shoppers.amount);
+           console.log('Name: ' + shopper.name);
+           console.log('Your total is: $' + shopper.amount);
        }
     });
 
@@ -154,10 +154,11 @@
      *      ...
      */
 
-    books.forEach(function (book) {
-        console.log('Book # ' + (books.indexOf(book) + 1));
+    books.forEach(function (book, index) {
+        console.log('Book # ' + (index + 1));
         console.log('Title: ' + book.title);
         console.log('Author: ' + book.author.firstName + ' ' + book.author.lastName);
+        console.log('---');
     });
 
 
@@ -171,6 +172,17 @@
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
+
+    function createBook(bookTitle, bookAuthor) {
+        bookTitle = prompt('Enter book title');
+        bookAuthor = prompt('Enter author');
+        return {
+            title: bookTitle,
+            author: bookAuthor
+        }
+    }
+
+    console.log(createBook());
 
 
 
