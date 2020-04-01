@@ -52,6 +52,14 @@
         var listItems = document.getElementsByTagName('li');
         console.log(listItems);
 
+        // Here's the walk-through example
+
+        // for (var i = 0; i < listItems.length; i++) {
+        //     if(i % 2 === 0){
+        //         listItems[i].style.color = 'grey';
+        //     }
+        // }
+
         // TODO: Set text color on every other list item to grey
 
         for (var i = 0; i < listItems.length; i += 2) {
@@ -59,6 +67,14 @@
         }
 
         // TODO: Set text color of li with dbid = 1 to blue
+
+        // Here's the walk-through example
+
+        // var dbId = listItems[i].getAttribute('data-dbid');
+        // console.log('dbId: ' + dbId);
+        // if(dbId === '1'){
+        //     listItems[i].style.color = 'blue';
+        // }
 
         var liElement = document.getElementsByTagName('li')[0];
         liElement.style.color = '#0000FF';
