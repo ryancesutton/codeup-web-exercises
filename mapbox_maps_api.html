@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mapbox Exercise</title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.css' rel='stylesheet' />
+
+</head>
+<body>
+
+<div id='map' style='width: 400px; height: 300px;'></div>
+
+
+<script src="js/keys.js"></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
+
+<script>
+
+    geocode('Dallas', mapboxToken).then(function (result) {
+        console.log(result);
+        mapboxgl.accessToken = mapboxToken;
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v9',
+            zoom: 12,
+            center: (result)
+        });
+        var marker = new mapboxgl.Marker()
+            .setLngLat([-96.805008, 32.787904])
+            .addTo(map);
+
+        map.on('click', function () {
+
+            var mesoPopup = new mapboxgl.Popup()
+                .setHTML('<p>Meso Maya</p>')
+                .addTo(map);
+
+
+            marker.setPopup(mesoPopup);
+        });
+        var restaurants = [
+            {
+                cuisineType: 'Interior Mexican',
+                favoriteDish: 'Budin Azteca'
+
+            },
+            {
+                cuisineType: 'Italian',
+                favoriteDish: 'Risotto con Burrata'
+            },
+            {
+                cuisineType: 'American Fare',
+                favoriteDish: 'Fried Mac & Cheese Balls'
+            }
+
+        ]
+
+    });
+
+
+
+</script>
+
+
+</body>
+</html>
