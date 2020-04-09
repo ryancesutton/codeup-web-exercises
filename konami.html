@@ -6,6 +6,7 @@
     <style>
         #peacock {
             visibility: hidden;
+            height: 400px;
         }
 
         #check-it-out {
@@ -18,16 +19,20 @@
 
 
 
+
     </style>
 </head>
 <body>
 
 <h1>Konami Code</h1>
 
+<h2>Press the following keys in order: ↑ ↑ ↓ ↓ ← → ← → B A Enter</h2>
+
 <div><h2 id="check-it-out">Check Out My Peacock!!</h2> <h2 id="jazz">JAZZ!</h2></div>
 
 
 <img src="8RMA.gif" alt="peacock-gif" id="peacock">
+
 
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -82,9 +87,10 @@
     function activateCheats() {
         // document.body.style.backgroundImage = "url('images/cheatBackground.png')";
 
-        alert("You have added 30 lives!");
+        alert("You gone n\' done it now!");
 
         $('body').css('background-color', 'red');
+
 
         var audio = new Audio('bensound-jazzyfrenchy.mp3');
         audio.play();
@@ -95,11 +101,15 @@
 
         $('#check-it-out').css('visibility', 'visible');
 
-        var delay = 4100; // delay time in milliseconds
 
-        var timeoutId = setTimeout(function () {
+        function blink_text() {
             $('#jazz').css('visibility', 'visible');
-        }, delay);
+            $('#jazz').fadeOut(1000);
+            $('#jazz').fadeIn(1000);
+        }
+        setInterval(blink_text, 1000);
+
+        $('h2').css('visibility', 'hidden');
 
 
     }
