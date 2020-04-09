@@ -3,11 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Konami Code</title>
+    <style>
+        #peacock {
+            visibility: hidden;
+        }
+
+        #check-it-out {
+            visibility: hidden;
+        }
+
+        #jazz {
+            visibility: hidden;
+        }
+
+
+
+    </style>
 </head>
 <body>
 
 <h1>Konami Code</h1>
 
+<div><h2 id="check-it-out">Check Out My Peacock!!</h2> <h2 id="jazz">JAZZ!</h2></div>
+
+
+<img src="8RMA.gif" alt="peacock-gif" id="peacock">
 
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -68,6 +88,20 @@
 
         var audio = new Audio('bensound-jazzyfrenchy.mp3');
         audio.play();
+
+        // TRYING TO ADD GIF
+
+        $('#peacock').css('visibility', 'visible');
+
+        $('#check-it-out').css('visibility', 'visible');
+
+        var delay = 4100; // delay time in milliseconds
+
+        var timeoutId = setTimeout(function () {
+            $('#jazz').css('visibility', 'visible');
+        }, delay);
+
+
     }
 
 
