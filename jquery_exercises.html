@@ -52,11 +52,11 @@
     });
 
     var handlerIn = function () {
-        $(this).css('color', 'red');
+        $('li').css('color', 'red');
     };
 
     var handlerOut = function () {
-        $(this).css('color', 'black');
+        $('li').css('color', 'black');
     };
 
     $('li').hover(handlerIn, handlerOut);
