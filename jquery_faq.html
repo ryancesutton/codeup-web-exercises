@@ -9,6 +9,10 @@
             visibility: hidden;
         }
 
+        .highlighted {
+            background-color: #FF0;
+        }
+
     </style>
 </head>
 <body>
@@ -61,6 +65,10 @@
 
         $('#show').click(function () {
             $('dd').toggleClass('invisible');
+        });
+
+        $('dt').click(function () {
+            $(this).toggleClass('highlighted');
         });
 
     });
