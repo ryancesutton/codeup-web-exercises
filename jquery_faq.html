@@ -10,7 +10,15 @@
         }
 
         .highlighted {
-            background-color: #FF0;
+            background-color: #FF0
+        }
+
+        .bold {
+            font-weight: bold
+        }
+
+        .blueLi {
+            color: blue
         }
 
     </style>
@@ -53,6 +61,30 @@
     <dd>Before you head out, check with the national parks that you intend to visit. In many national parks, off-road driving is illegal. Where off-road driving is allowed, the National Park Service regulates it.</dd>
 </dl>
 
+    <h3 id="arches">Arches</h3>
+    <ul id="arches-facts" class="facts">
+        <li>In 1929 President Herbert Hoover created Arches National Monument, then in 1971 Congress designated Arches as a National Park under the Nixon administration.</li>
+        <li>There are more than 2000 natural sandstone arches inside Arches National Park.</li>
+        <li>Landscape Arch has the longest span of any arch in North America, 306 feet (93.3 meters), and is the fourth longest in the world</li>
+        <li>The enormous sandstone boulder atop Balanced Rock is presumed to weigh approximately 3,577 tons!</li>
+    </ul>
+    <h3 id="badlands">Badlands</h3>
+    <ul id="badlands-facts" class="facts">
+        <li>Bison, commonly known as buffalo, can be seen throughout the park.</li>
+        <li>Badlands lies in an ecological area known as a mixed-grass prairie.</li>
+        <li>The Badlands National Park area is known worldwide for its large number of fossil remains.</li>
+        <li>The name Badlands comes from the Lakota, who first called it “mako sica”, or “land that is bad”.</li>
+    </ul>
+    <h3 id="joshua">Joshua Tree</h3>
+    <ul id="joshua-facts" class="facts">
+        <li>As part of the Desert Protection Bill, Joshua Tree National Monument was elevated to national park status on October 31, 1994.</li>
+        <li>Early explorer John Fremont described Joshua trees as “the most repulsive tree in the vegetable Kingdom”.</li>
+        <li>Mormon pioneers thought the limbs of the Joshua trees resembled the upstretched arms of Joshua leading them to the promised land.</li>
+        <li>More than 550,000 acres of Joshua Tree National Park’s nearly 800,000 acres are designated as wilderness.</li>
+    </ul>
+
+<button id="yellow-li">Highlight Last Facts</button>
+
 
 
 
@@ -69,6 +101,24 @@
 
         $('dt').click(function () {
             $(this).toggleClass('highlighted');
+        });
+
+        // $('#yellow-li').click(function () {
+        //     $('.last-li').css('background-color', 'yellow');
+        // });
+
+        $('#yellow-li').click(function () {
+            $('ul li:last-child').toggleClass('highlighted');
+        });
+
+        $('h3').click(function () {
+            $(this).next().children().toggleClass('bold');
+        });
+
+        $('li').click(function () {
+            var uList = $(this).parent();
+            var listItems = uList.children();
+            listItems.first().toggleClass('blueLi');
         });
 
     });
