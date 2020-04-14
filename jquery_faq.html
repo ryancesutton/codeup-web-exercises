@@ -21,9 +21,17 @@
             color: blue
         }
 
+
     </style>
 </head>
 <body>
+
+<div>
+    <h1>Would you like to sign up for our newsletter?</h1>
+    <span id="x">X</span>
+</div>
+
+<h2>Want to register with our site?</h2>
 
 <p>National Parks FAQ:</p>
 
@@ -103,16 +111,15 @@
             $(this).toggleClass('highlighted');
         });
 
-        // $('#yellow-li').click(function () {
-        //     $('.last-li').css('background-color', 'yellow');
-        // });
-
         $('#yellow-li').click(function () {
             $('ul li:last-child').toggleClass('highlighted');
         });
 
+        $('.facts').hide();
+
         $('h3').click(function () {
-            $(this).next().children().toggleClass('bold');
+            $(this).next().slideToggle();
+            // $(this).next().children().toggleClass('bold');
         });
 
         $('li').click(function () {
@@ -120,6 +127,22 @@
             var listItems = uList.children();
             listItems.first().toggleClass('blueLi');
         });
+
+        $('#x').click(function () {
+            $(this).parent().hide();
+        });
+
+        $('h2').hide();
+
+        setTimeout(function () {
+            $('h2').fadeIn(1000);
+        }, 8000);
+
+
+
+
+
+
 
     });
 </script>
