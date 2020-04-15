@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax Blog</title>
+</head>
+<body>
+
+<div id="posts">
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+    (function () {
+        "use strict";
+        $.get("data/blog.json").done(function (data, status) {
+            console.log(status);
+            console.log(data);
+
+
+            var generatedHTML = "";
+
+
+            for (var x = 0; x < data.length ; x++) {
+                console.log(data[x]);
+                console.log(data[x].title);
+                generatedHTML = "<div><h3>" + data[x].title + "</h3>" +
+                        ""
+                    "           <p>" + data[x].categories + "</p></div>";
+
+                $("#posts").append(generatedHTML);
+
+            }
+
+
+        }).fail(function (errors) {
+            console.error(errors);
+        });
+
+    })();
+</script>
+</body>
+</html>
