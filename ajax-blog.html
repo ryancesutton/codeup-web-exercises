@@ -26,8 +26,8 @@
                 console.log(data[x]);
                 console.log(data[x].title);
                 generatedHTML = "<div><h3>" + data[x].title + "</h3>" +
-                        ""
-                    "           <p>" + data[x].categories + "</p></div>";
+                        "<p>" + data[x].content +  "</p>" +
+                        "<p>" + "Categories: " + data[x].categories + "</p></div>";
 
                 $("#posts").append(generatedHTML);
 
