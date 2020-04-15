@@ -16,5 +16,21 @@
             "sugar"
         ],
         "date": "February 14, 2015"
+    }, {
+        "title": "The Third Post",
+        "content": "This is the third post for the blog",
+        "categories": [
+            "general",
+            "family"
+        ]
+
+    }, {
+        "title": "The Fourth Post",
+        "content": "This is the fourth post for the blog",
+        "categories": [
+            "general",
+            "family"
+    ]
+
     }
 ]
