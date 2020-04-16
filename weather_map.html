@@ -32,63 +32,63 @@
 <div id="five-day-forecast">
     <div class="card-deck">
         <div class="card">
-            <div class="card-header">
-
+            <div class="card-header" id="day-one">
+                Featured
             </div>
             <ul class="list-group">
-                <li class="list-group-item"></li>
-                <li class="list-group-item"></li>
-                <li class="list-group-item"></li>
-                <li class="list-group-item"></li>
-                <li class="list-group-item"></li>
+                <li class="list-group-item">Cras justo odio</li>
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item">Morbi leo risus</li>
+                <li class="list-group-item">Porta ac consectetur ac</li>
+                <li class="list-group-item">Vestibulum at eros</li>
             </ul>
         </div>
         <div class="card">
             <div class="card-header">
-
+                Featured
             </div>
             <ul class="list-group">
-                <li class="list-group-item"></li>
-                <li class="list-group-item"></li>
-                <li class="list-group-item"></li>
-                <li class="list-group-item"></li>
-                <li class="list-group-item"></li>
+                <li class="list-group-item">Cras justo odio</li>
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item">Morbi leo risus</li>
+                <li class="list-group-item">Porta ac consectetur ac</li>
+                <li class="list-group-item">Vestibulum at eros</li>
             </ul>
         </div>
         <div class="card">
             <div class="card-header">
-
+                Featured
             </div>
             <ul class="list-group">
-                <li class="list-group-item"></li>
-                <li class="list-group-item"></li>
-                <li class="list-group-item"></li>
-                <li class="list-group-item"></li>
-                <li class="list-group-item"></li>
+                <li class="list-group-item">Cras justo odio</li>
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item">Morbi leo risus</li>
+                <li class="list-group-item">Porta ac consectetur ac</li>
+                <li class="list-group-item">Vestibulum at eros</li>
             </ul>
         </div>
         <div class="card">
             <div class="card-header">
-
+                Featured
             </div>
             <ul class="list-group">
-                <li class="list-group-item"></li>
-                <li class="list-group-item"></li>
-                <li class="list-group-item"></li>
-                <li class="list-group-item"></li>
-                <li class="list-group-item"></li>
+                <li class="list-group-item">Cras justo odio</li>
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item">Morbi leo risus</li>
+                <li class="list-group-item">Porta ac consectetur ac</li>
+                <li class="list-group-item">Vestibulum at eros</li>
             </ul>
         </div>
         <div class="card">
             <div class="card-header">
-
+                Featured
             </div>
             <ul class="list-group">
-                <li class="list-group-item"></li>
-                <li class="list-group-item"></li>
-                <li class="list-group-item"></li>
-                <li class="list-group-item"></li>
-                <li class="list-group-item"></li>
+                <li class="list-group-item">Cras justo odio</li>
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item">Morbi leo risus</li>
+                <li class="list-group-item">Porta ac consectetur ac</li>
+                <li class="list-group-item">Vestibulum at eros</li>
             </ul>
         </div>
     </div>
@@ -114,7 +114,7 @@
 
         function weatherData(){
             $("#current-city").empty();
-            $(".card").empty();
+            $("#day-one").empty();
 
 
             $.get(url, {
@@ -125,11 +125,19 @@
                 console.log(data);
                 $("#current-city").text("Current City: " + data.city.name);
 
-                // var day = {};
-                // for (var x = 0; x < data.list.length; x += 8) {
-                //     day = data.list[x];
-                //
-                // }
+                for (var x = 0; x < data.list.length; x += 8) {
+                    if(x === 0) {
+                        // console.log(data.list[0].dt_txt);
+                        var date = data.list[0].dt_txt;
+                        var splitDate = date.split(" ");
+
+                        $("#day-one").append(splitDate[0]);
+
+
+
+                    }
+
+                }
 
             }).fail(function (errors) {
                 console.error(errors);
