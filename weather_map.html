@@ -23,7 +23,7 @@
         <div class="form-group mx-sm-3 mb-2">
             <span class="mr-2">Place</span>
             <label for="inputCity" class="sr-only">enter-city</label>
-            <input type="text" class="form-control" id="inputCity" placeholder="Enter City">
+            <input type="text" class="form-control" id="inputCity" value="Dallas" placeholder="Enter City">
         </div>
         <button type="submit" class="btn btn-primary mb-2" id="find">Find</button>
     </form>
@@ -33,62 +33,62 @@
     <div class="card-deck">
         <div class="card">
             <div class="card-header">
-                Featured
+
             </div>
             <ul class="list-group">
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Morbi leo risus</li>
-                <li class="list-group-item">Porta ac consectetur ac</li>
-                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item"></li>
+                <li class="list-group-item"></li>
+                <li class="list-group-item"></li>
+                <li class="list-group-item"></li>
+                <li class="list-group-item"></li>
             </ul>
         </div>
         <div class="card">
             <div class="card-header">
-                Featured
+
             </div>
             <ul class="list-group">
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Morbi leo risus</li>
-                <li class="list-group-item">Porta ac consectetur ac</li>
-                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item"></li>
+                <li class="list-group-item"></li>
+                <li class="list-group-item"></li>
+                <li class="list-group-item"></li>
+                <li class="list-group-item"></li>
             </ul>
         </div>
         <div class="card">
             <div class="card-header">
-                Featured
+
             </div>
             <ul class="list-group">
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Morbi leo risus</li>
-                <li class="list-group-item">Porta ac consectetur ac</li>
-                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item"></li>
+                <li class="list-group-item"></li>
+                <li class="list-group-item"></li>
+                <li class="list-group-item"></li>
+                <li class="list-group-item"></li>
             </ul>
         </div>
         <div class="card">
             <div class="card-header">
-                Featured
+
             </div>
             <ul class="list-group">
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Morbi leo risus</li>
-                <li class="list-group-item">Porta ac consectetur ac</li>
-                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item"></li>
+                <li class="list-group-item"></li>
+                <li class="list-group-item"></li>
+                <li class="list-group-item"></li>
+                <li class="list-group-item"></li>
             </ul>
         </div>
         <div class="card">
             <div class="card-header">
-                Featured
+
             </div>
             <ul class="list-group">
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Morbi leo risus</li>
-                <li class="list-group-item">Porta ac consectetur ac</li>
-                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item"></li>
+                <li class="list-group-item"></li>
+                <li class="list-group-item"></li>
+                <li class="list-group-item"></li>
+                <li class="list-group-item"></li>
             </ul>
         </div>
     </div>
@@ -109,24 +109,35 @@
     (function () {
 
         var url = "http://api.openweathermap.org/data/2.5/forecast";
-        var city = $("#inputCity").val();
 
-        $.get(url, {
-            "APPID": OWM_KEY,
-            "q": city,
-            "units": "imperial"
-        }).done(function (data) {
-            console.log(data);
-            $("#current-city").text("Current City: " + data.city.name);
+        weatherData();
 
-            var day = {};
-            for (var x = 0; x < data.list.length; x += 8) {
-                day = data.list[x];
+        function weatherData(){
+            $("#current-city").empty();
+            $(".card").empty();
 
-            }
 
-        }).fail(function (errors) {
-            console.error(errors);
+            $.get(url, {
+                "APPID": OWM_KEY,
+                "q": $("#inputCity").val(),
+                "units": "imperial"
+            }).done(function (data) {
+                console.log(data);
+                $("#current-city").text("Current City: " + data.city.name);
+
+                // var day = {};
+                // for (var x = 0; x < data.list.length; x += 8) {
+                //     day = data.list[x];
+                //
+                // }
+
+            }).fail(function (errors) {
+                console.error(errors);
+            });
+        }
+
+        $("#find").click(function () {
+            weatherData();
         });
 
 
