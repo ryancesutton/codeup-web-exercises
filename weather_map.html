@@ -33,62 +33,62 @@
     <div class="card-deck">
         <div class="card">
             <div class="card-header" id="day-one">
-                Featured
+
             </div>
             <ul class="list-group">
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Morbi leo risus</li>
-                <li class="list-group-item">Porta ac consectetur ac</li>
-                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item" id="one-temp"></li>
+                <li class="list-group-item" id="one-descript"></li>
+                <li class="list-group-item" id="one-humid"></li>
+                <li class="list-group-item" id="one-wind"></li>
+                <li class="list-group-item" id="one-pressure"></li>
             </ul>
         </div>
         <div class="card">
-            <div class="card-header">
-                Featured
+            <div class="card-header" id="day-two">
+
             </div>
             <ul class="list-group">
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Morbi leo risus</li>
-                <li class="list-group-item">Porta ac consectetur ac</li>
-                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item" id="two-temp"></li>
+                <li class="list-group-item" id="two-descript"></li>
+                <li class="list-group-item" id="two-humid"></li>
+                <li class="list-group-item" id="two-wind"></li>
+                <li class="list-group-item" id="two-pressure"></li>
             </ul>
         </div>
         <div class="card">
-            <div class="card-header">
-                Featured
+            <div class="card-header" id="day-three">
+
             </div>
             <ul class="list-group">
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Morbi leo risus</li>
-                <li class="list-group-item">Porta ac consectetur ac</li>
-                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item" id="three-temp"></li>
+                <li class="list-group-item" id="three-descript"></li>
+                <li class="list-group-item" id="three-humid"></li>
+                <li class="list-group-item" id="three-wind"></li>
+                <li class="list-group-item" id="three-pressure"></li>
             </ul>
         </div>
         <div class="card">
-            <div class="card-header">
-                Featured
+            <div class="card-header" id="day-four">
+
             </div>
             <ul class="list-group">
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Morbi leo risus</li>
-                <li class="list-group-item">Porta ac consectetur ac</li>
-                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item" id="four-temp"></li>
+                <li class="list-group-item" id="four-descript"></li>
+                <li class="list-group-item" id="four-humid"></li>
+                <li class="list-group-item" id="four-wind"></li>
+                <li class="list-group-item" id="four-pressure"></li>
             </ul>
         </div>
         <div class="card">
-            <div class="card-header">
-                Featured
+            <div class="card-header" id="day-five">
+
             </div>
             <ul class="list-group">
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Morbi leo risus</li>
-                <li class="list-group-item">Porta ac consectetur ac</li>
-                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item" id="five-temp"></li>
+                <li class="list-group-item" id="five-descript"></li>
+                <li class="list-group-item" id="five-humid"></li>
+                <li class="list-group-item" id="five-wind"></li>
+                <li class="list-group-item" id="five-pressure"></li>
             </ul>
         </div>
     </div>
@@ -113,8 +113,7 @@
         weatherData();
 
         function weatherData(){
-            $("#current-city").empty();
-            $("#day-one").empty();
+
 
 
             $.get(url, {
@@ -124,15 +123,71 @@
             }).done(function (data) {
                 console.log(data);
                 $("#current-city").text("Current City: " + data.city.name);
-
-                for (var x = 0; x < data.list.length; x += 8) {
+                var HTML = "";
+                for (var x = 0; x < data.list.length; x++) {
                     if(x === 0) {
-                        // console.log(data.list[0].dt_txt);
-                        var date = data.list[0].dt_txt;
+                        console.log(data.list[0].main.temp);
+                        var date = data.list[x].dt_txt;
                         var splitDate = date.split(" ");
 
-                        $("#day-one").append(splitDate[0]);
+                        $("#day-one").text(splitDate[0]);
+                        $("#one-temp").text(data.list[x].main.temp + "");
+                        $("#one-descript").text("Description: " + data.list[x].weather[0].description);
+                        $("#one-humid").text("Humidity: " + data.list[x].main.humidity);
+                        $("#one-wind").text("Wind: " + data.list[x].wind.speed);
+                        $("#one-pressure").text("Pressure: " + data.list[x].main.humidity)
 
+
+                    } else if (x === 8) {
+                        console.log(data.list[8].main.temp);
+                        var dateTwo = data.list[x].dt_txt;
+                        var splitDateTwo = dateTwo.split(" ");
+
+                        $("#day-two").text(splitDateTwo[0]);
+                        $("#two-temp").text(data.list[x].main.temp + "");
+                        $("#two-descript").text("Description: " + data.list[x].weather[0].description);
+                        $("#two-humid").text("Humidity: " + data.list[x].main.humidity);
+                        $("#two-wind").text("Wind: " + data.list[x].wind.speed);
+                        $("#two-pressure").text("Pressure: " + data.list[x].main.humidity)
+
+
+                    } else if (x === 16) {
+                        console.log(data.list[16].main.temp);
+                        var dateThree = data.list[x].dt_txt;
+                        var splitDateThree = dateThree.split(" ");
+
+                        $("#day-three").text(splitDateThree[0]);
+                        $("#three-temp").text(data.list[x].main.temp + "");
+                        $("#three-descript").text("Description: " + data.list[x].weather[0].description);
+                        $("#three-humid").text("Humidity: " + data.list[x].main.humidity);
+                        $("#three-wind").text("Wind: " + data.list[x].wind.speed);
+                        $("#three-pressure").text("Pressure: " + data.list[x].main.humidity)
+
+
+                    } else if (x === 24) {
+                        console.log(data.list[24].main.temp);
+                        var dateFour = data.list[x].dt_txt;
+                        var splitDateFour = dateFour.split(" ");
+
+                        $("#day-four").text(splitDateFour[0]);
+                        $("#four-temp").text(data.list[x].main.temp + "");
+                        $("#four-descript").text("Description: " + data.list[x].weather[0].description);
+                        $("#four-humid").text("Humidity: " + data.list[x].main.humidity);
+                        $("#four-wind").text("Wind: " + data.list[x].wind.speed);
+                        $("#four-pressure").text("Pressure: " + data.list[x].main.humidity)
+
+
+                    } else if (x === 32) {
+                        console.log(data.list[32].main.temp);
+                        var dateFive = data.list[x].dt_txt;
+                        var splitDateFive = dateFive.split(" ");
+
+                        $("#day-five").text(splitDateFive[0]);
+                        $("#five-temp").text(data.list[x].main.temp + "");
+                        $("#five-descript").text("Description: " + data.list[x].weather[0].description);
+                        $("#five-humid").text("Humidity: " + data.list[x].main.humidity);
+                        $("#five-wind").text("Wind: " + data.list[x].wind.speed);
+                        $("#five-pressure").text("Pressure: " + data.list[x].main.humidity)
 
 
                     }
