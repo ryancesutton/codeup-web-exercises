@@ -3,11 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Weather App</title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.css' rel='stylesheet' />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
     <style>
         #five-day-forecast {
             margin: 20px;
+        }
+        #map {
+            margin: 0 auto;
+
+            width: 95%;
+            height: 500px;
         }
     </style>
 </head>
@@ -94,8 +103,12 @@
     </div>
 </div>
 
+<div id='map'></div>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.js'></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
         integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
         crossorigin="anonymous"></script>
@@ -103,6 +116,7 @@
         integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
 <script src="js/keys.js"></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
 
 <script>
     "use strict";
@@ -114,8 +128,6 @@
 
         function weatherData(){
 
-
-
             $.get(url, {
                 "APPID": OWM_KEY,
                 "q": $("#inputCity").val(),
@@ -123,7 +135,7 @@
             }).done(function (data) {
                 console.log(data);
                 $("#current-city").text("Current City: " + data.city.name);
-                var HTML = "";
+                // var HTML = "";
                 for (var x = 0; x < data.list.length; x++) {
                     if(x === 0) {
                         console.log(data.list[0].main.temp);
@@ -192,7 +204,17 @@
 
                     }
 
-                }
+                } mapboxgl.accessToken = mapboxToken;
+                var map = new mapboxgl.Map({
+                    container: 'map',
+                    style: 'mapbox://styles/mapbox/outdoors-v11',
+                    center: [data.city.coord.lon, data.city.coord.lat],
+                    zoom: 14
+                });
+
+                var marker = new mapboxgl.Marker()
+                    .setLngLat([data.city.coord.lon, data.city.coord.lat])
+                    .addTo(map);
 
             }).fail(function (errors) {
                 console.error(errors);
@@ -202,6 +224,7 @@
         $("#find").click(function () {
             weatherData();
         });
+
 
 
     })();
