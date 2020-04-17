@@ -222,17 +222,19 @@
                     .setLngLat([data.city.coord.lon, data.city.coord.lat])
                     .addTo(map);
 
-                function onDragEnd() {
-                    var lngLat = marker.getLngLat();
-                    reverseGeocode({lng: lngLat.lng, lat: lngLat.lat}, mapboxToken).then(function(results) {
-                        cityInput = results;
-                        weatherData();
-                    });
 
 
-                }
 
-                marker.on(onDragEnd);
+
+                var lngLat = marker.getLngLat();
+
+                marker.on('dragend',reverseGeocode({lng: lngLat.lng, lat: lngLat.lat}, mapboxToken).then(function(results) {
+                    var getCity = results.split(",");
+                    cityInput = getCity[1];
+
+                    console.log(cityInput);
+                    // weatherData();
+                }));
 
 
             }).fail(function (errors) {
@@ -243,10 +245,6 @@
         $("#find").click(function () {
             weatherData();
         });
-
-
-
-
 
     })();
 
