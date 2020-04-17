@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather App</title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <style>
+        #five-day-forecast {
+            margin: 20px;
+        }
+        #map {
+            margin: 0 auto;
+
+            width: 95%;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+
+<nav id="top-blue-bar" class="text-white bg-primary p-1 nav justify-content-between">
+    <h2 class="nav-link">Weather App</h2>
+    <a class="nav-link align-self-center" id="current-city"></a>
+</nav>
+
+<div id="search" class="m-4">
+    <form class="form-inline">
+        <div class="form-group mx-sm-3 mb-2">
+            <span class="mr-2">Place</span>
+            <label for="inputCity" class="sr-only">enter-city</label>
+            <input type="text" class="form-control" id="inputCity" value="Dallas" placeholder="Enter City">
+        </div>
+        <button type="submit" class="btn btn-primary mb-2" id="find">Find</button>
+    </form>
+</div>
+
+<div id="five-day-forecast">
+    <div class="card-deck">
+        <div class="card">
+            <div class="card-header" id="day-one">
+
+            </div>
+            <ul class="list-group">
+                <li class="list-group-item" id="one-temp"></li>
+                <li class="list-group-item" id="one-descript"></li>
+                <li class="list-group-item" id="one-humid"></li>
+                <li class="list-group-item" id="one-wind"></li>
+                <li class="list-group-item" id="one-pressure"></li>
+            </ul>
+        </div>
+        <div class="card">
+            <div class="card-header" id="day-two">
+
+            </div>
+            <ul class="list-group">
+                <li class="list-group-item" id="two-temp"></li>
+                <li class="list-group-item" id="two-descript"></li>
+                <li class="list-group-item" id="two-humid"></li>
+                <li class="list-group-item" id="two-wind"></li>
+                <li class="list-group-item" id="two-pressure"></li>
+            </ul>
+        </div>
+        <div class="card">
+            <div class="card-header" id="day-three">
+
+            </div>
+            <ul class="list-group">
+                <li class="list-group-item" id="three-temp"></li>
+                <li class="list-group-item" id="three-descript"></li>
+                <li class="list-group-item" id="three-humid"></li>
+                <li class="list-group-item" id="three-wind"></li>
+                <li class="list-group-item" id="three-pressure"></li>
+            </ul>
+        </div>
+        <div class="card">
+            <div class="card-header" id="day-four">
+
+            </div>
+            <ul class="list-group">
+                <li class="list-group-item" id="four-temp"></li>
+                <li class="list-group-item" id="four-descript"></li>
+                <li class="list-group-item" id="four-humid"></li>
+                <li class="list-group-item" id="four-wind"></li>
+                <li class="list-group-item" id="four-pressure"></li>
+            </ul>
+        </div>
+        <div class="card">
+            <div class="card-header" id="day-five">
+
+            </div>
+            <ul class="list-group">
+                <li class="list-group-item" id="five-temp"></li>
+                <li class="list-group-item" id="five-descript"></li>
+                <li class="list-group-item" id="five-humid"></li>
+                <li class="list-group-item" id="five-wind"></li>
+                <li class="list-group-item" id="five-pressure"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id='map'></div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.js'></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+<script src="js/keys.js"></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
+
+<script>
+    "use strict";
+    (function () {
+
+        var url = "http://api.openweathermap.org/data/2.5/forecast";
+
+        weatherData();
+
+
+
+        function weatherData(){
+
+            var cityInput = $("#inputCity").val();
+
+            $.get(url, {
+                "APPID": OWM_KEY,
+                "q": cityInput,
+                "units": "imperial"
+            }).done(function (data) {
+                console.log(data);
+                $("#current-city").text("Current City: " + data.city.name);
+                // var HTML = "";
+                for (var x = 0; x < data.list.length; x++) {
+                    if(x === 0) {
+                        console.log(data.list[0].main.temp);
+                        var date = data.list[x].dt_txt;
+                        var splitDate = date.split(" ");
+
+                        $("#day-one").text(splitDate[0]);
+                        $("#one-temp").text("Temp: " + data.list[x].main.temp + "");
+                        $("#one-descript").text("Description: " + data.list[x].weather[0].description);
+                        $("#one-humid").text("Humidity: " + data.list[x].main.humidity);
+                        $("#one-wind").text("Wind: " + data.list[x].wind.speed);
+                        $("#one-pressure").text("Pressure: " + data.list[x].main.humidity)
+
+
+                    } else if (x === 8) {
+                        console.log(data.list[8].main.temp);
+                        var dateTwo = data.list[x].dt_txt;
+                        var splitDateTwo = dateTwo.split(" ");
+
+                        $("#day-two").text(splitDateTwo[0]);
+                        $("#two-temp").text("Temp: " + data.list[x].main.temp + "");
+                        $("#two-descript").text("Description: " + data.list[x].weather[0].description);
+                        $("#two-humid").text("Humidity: " + data.list[x].main.humidity);
+                        $("#two-wind").text("Wind: " + data.list[x].wind.speed);
+                        $("#two-pressure").text("Pressure: " + data.list[x].main.humidity)
+
+
+                    } else if (x === 16) {
+                        console.log(data.list[16].main.temp);
+                        var dateThree = data.list[x].dt_txt;
+                        var splitDateThree = dateThree.split(" ");
+
+                        $("#day-three").text(splitDateThree[0]);
+                        $("#three-temp").text("Temp: " + data.list[x].main.temp + "");
+                        $("#three-descript").text("Description: " + data.list[x].weather[0].description);
+                        $("#three-humid").text("Humidity: " + data.list[x].main.humidity);
+                        $("#three-wind").text("Wind: " + data.list[x].wind.speed);
+                        $("#three-pressure").text("Pressure: " + data.list[x].main.humidity)
+
+
+                    } else if (x === 24) {
+                        console.log(data.list[24].main.temp);
+                        var dateFour = data.list[x].dt_txt;
+                        var splitDateFour = dateFour.split(" ");
+
+                        $("#day-four").text(splitDateFour[0]);
+                        $("#four-temp").text("Temp: " + data.list[x].main.temp + "");
+                        $("#four-descript").text("Description: " + data.list[x].weather[0].description);
+                        $("#four-humid").text("Humidity: " + data.list[x].main.humidity);
+                        $("#four-wind").text("Wind: " + data.list[x].wind.speed);
+                        $("#four-pressure").text("Pressure: " + data.list[x].main.humidity)
+
+
+                    } else if (x === 32) {
+                        console.log(data.list[32].main.temp);
+                        var dateFive = data.list[x].dt_txt;
+                        var splitDateFive = dateFive.split(" ");
+
+                        $("#day-five").text(splitDateFive[0]);
+                        $("#five-temp").text("Temp: " + data.list[x].main.temp + "");
+                        $("#five-descript").text("Description: " + data.list[x].weather[0].description);
+                        $("#five-humid").text("Humidity: " + data.list[x].main.humidity);
+                        $("#five-wind").text("Wind: " + data.list[x].wind.speed);
+                        $("#five-pressure").text("Pressure: " + data.list[x].main.humidity)
+
+
+                    }
+
+                } mapboxgl.accessToken = mapboxToken;
+                var map = new mapboxgl.Map({
+                    container: 'map',
+                    style: 'mapbox://styles/mapbox/outdoors-v11',
+                    center: [data.city.coord.lon, data.city.coord.lat],
+                    zoom: 14
+                });
+
+                var marker = new mapboxgl.Marker({
+                    draggable: true
+                })
+                    .setLngLat([data.city.coord.lon, data.city.coord.lat])
+                    .addTo(map);
+
+
+
+
+
+                var lngLat = marker.getLngLat();
+
+                marker.on('dragend',reverseGeocode({lng: lngLat.lng, lat: lngLat.lat}, mapboxToken).then(function(results) {
+                    var getCity = results.split(",");
+                    cityInput = getCity[1];
+
+                    console.log(cityInput);
+                    // weatherData();
+                }));
+
+
+            }).fail(function (errors) {
+                console.error(errors);
+            });
+        }
+
+        $("#find").click(function () {
+            weatherData();
+        });
+
+    })();
+
+
+</script>
+</body>
+</html>
