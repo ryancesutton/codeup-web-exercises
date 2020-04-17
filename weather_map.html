@@ -126,11 +126,15 @@
 
         weatherData();
 
+
+
         function weatherData(){
+
+            var cityInput = $("#inputCity").val();
 
             $.get(url, {
                 "APPID": OWM_KEY,
-                "q": $("#inputCity").val(),
+                "q": cityInput,
                 "units": "imperial"
             }).done(function (data) {
                 console.log(data);
@@ -143,7 +147,7 @@
                         var splitDate = date.split(" ");
 
                         $("#day-one").text(splitDate[0]);
-                        $("#one-temp").text(data.list[x].main.temp + "");
+                        $("#one-temp").text("Temp: " + data.list[x].main.temp + "");
                         $("#one-descript").text("Description: " + data.list[x].weather[0].description);
                         $("#one-humid").text("Humidity: " + data.list[x].main.humidity);
                         $("#one-wind").text("Wind: " + data.list[x].wind.speed);
@@ -156,7 +160,7 @@
                         var splitDateTwo = dateTwo.split(" ");
 
                         $("#day-two").text(splitDateTwo[0]);
-                        $("#two-temp").text(data.list[x].main.temp + "");
+                        $("#two-temp").text("Temp: " + data.list[x].main.temp + "");
                         $("#two-descript").text("Description: " + data.list[x].weather[0].description);
                         $("#two-humid").text("Humidity: " + data.list[x].main.humidity);
                         $("#two-wind").text("Wind: " + data.list[x].wind.speed);
@@ -169,7 +173,7 @@
                         var splitDateThree = dateThree.split(" ");
 
                         $("#day-three").text(splitDateThree[0]);
-                        $("#three-temp").text(data.list[x].main.temp + "");
+                        $("#three-temp").text("Temp: " + data.list[x].main.temp + "");
                         $("#three-descript").text("Description: " + data.list[x].weather[0].description);
                         $("#three-humid").text("Humidity: " + data.list[x].main.humidity);
                         $("#three-wind").text("Wind: " + data.list[x].wind.speed);
@@ -182,7 +186,7 @@
                         var splitDateFour = dateFour.split(" ");
 
                         $("#day-four").text(splitDateFour[0]);
-                        $("#four-temp").text(data.list[x].main.temp + "");
+                        $("#four-temp").text("Temp: " + data.list[x].main.temp + "");
                         $("#four-descript").text("Description: " + data.list[x].weather[0].description);
                         $("#four-humid").text("Humidity: " + data.list[x].main.humidity);
                         $("#four-wind").text("Wind: " + data.list[x].wind.speed);
@@ -195,7 +199,7 @@
                         var splitDateFive = dateFive.split(" ");
 
                         $("#day-five").text(splitDateFive[0]);
-                        $("#five-temp").text(data.list[x].main.temp + "");
+                        $("#five-temp").text("Temp: " + data.list[x].main.temp + "");
                         $("#five-descript").text("Description: " + data.list[x].weather[0].description);
                         $("#five-humid").text("Humidity: " + data.list[x].main.humidity);
                         $("#five-wind").text("Wind: " + data.list[x].wind.speed);
@@ -212,9 +216,24 @@
                     zoom: 14
                 });
 
-                var marker = new mapboxgl.Marker()
+                var marker = new mapboxgl.Marker({
+                    draggable: true
+                })
                     .setLngLat([data.city.coord.lon, data.city.coord.lat])
                     .addTo(map);
+
+                function onDragEnd() {
+                    var lngLat = marker.getLngLat();
+                    reverseGeocode({lng: lngLat.lng, lat: lngLat.lat}, mapboxToken).then(function(results) {
+                        cityInput = results;
+                        weatherData();
+                    });
+
+
+                }
+
+                marker.on(onDragEnd);
+
 
             }).fail(function (errors) {
                 console.error(errors);
@@ -224,6 +243,8 @@
         $("#find").click(function () {
             weatherData();
         });
+
+
 
 
 
