@@ -50,9 +50,8 @@ let emails = [];
 let names = [];
 
 // TODO: rewrite the following using arrow functions
-users.forEach = (user) => {
-  return emails.push(user.email) + names.push(user.name);
-};
+users.forEach = (user) => emails.push(user.email) + names.push(user.name);
+
 
 // users.forEach(function(user) {
 //   return names.push(user.name);
@@ -72,7 +71,7 @@ users.forEach(function(user) {
 
   // TODO: rewrite the assignment below to use template strings
   developers.push(`${name}'s email is ${email} ${name} knows ${languages.join(', ')}`);
-
+});
 //   developers.push(name + '\'s email is ' + email + name + ' knows ' + languages.join(', '));
 // });
 
@@ -81,12 +80,15 @@ let list = '<ul>';
 
 // TODO: rewrite the following loop to use a for..of loop
   for (let developer of developers) {
-    
-}
+    list += '<li>' + developer + '</li>';
+  }
+    list += '</ul>';
 
-developers.forEach(function (developer) {
+
+
+// developers.forEach(function (developer) {
 
   // TODO: rewrite the assignment below to use template strings
-  list += '<li>' + developer + '</li>';
-});
-list += '</ul>';
+//   list += '<li>' + developer + '</li>';
+// });
+// list += '</ul>';
