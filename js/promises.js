@@ -1,10 +1,6 @@
 "use strict";
 
-const url = "https://api.github.com";
-
-
-// fetch(url, {headers: {'Authorization': `token ${GIT_TOKEN}`}})
-//     .then(response => console.log(response.json()));
+// const url = "https://api.github.com";
 
 function getLatestCommit(username) {
     let userUrl = `https://api.github.com/users/${username}/events/public`;
@@ -14,7 +10,7 @@ function getLatestCommit(username) {
         )
 }
 
-console.log(getLatestCommit('ryancesutton'));
+getLatestCommit('ryancesutton').then( lastCommitDate => console.log('lastCommitDate', lastCommitDate));
 
 
 
