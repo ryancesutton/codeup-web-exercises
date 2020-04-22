@@ -12,8 +12,18 @@ function getLatestCommit(username) {
 
 getLatestCommit('ryancesutton').then( lastCommitDate => console.log('lastCommitDate', lastCommitDate));
 
+const wait = milliseconds => {
+   return new Promise((resolved, reject) => {
+       setTimeout(() => {
+            resolved(milliseconds);
+       }, milliseconds);
+   });
+};
 
+wait(4000).then((ms) => console.log(`You'll see this after ${ms/1000} seconds`));
+wait(5000).then((ms) => console.log(`You'll see this after ${ms/1000} seconds`));
 
-
-
+wait(6000).then((ms) => {
+    console.log(`You'll see this after ${ms/1000} second`)
+});
 
