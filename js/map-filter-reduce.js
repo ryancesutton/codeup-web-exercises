@@ -50,13 +50,34 @@ console.log(getTotalYears);
 const yearsAverage = getTotalYears / users.length;
 console.log(yearsAverage);
 
-const longestEmail = emailArray.reduce((firstEmail, nextEmail) => {
-    return firstEmail.length > nextEmail.length ? firstEmail : nextEmail;
+const longestEmail = users.reduce((longest, user) => {
+    return user.email.length > longest.length ? user.email : longest;
 },'');
 console.log(longestEmail);
 
-const userNamesString = users.reduce((users, user) => {
-    return users + user.name;
+const userNamesString = users.reduce((names, user) => {
+    if (names !== '') {
+        names += ', ';
+    }
+        return names + user.name;
+
 
 },'');
 console.log(userNamesString);
+
+//An alternative solution
+
+console.log(users.map( user => user.name ).join(', '));
+
+//Solution to bonus
+
+const theLanguages = users.reduce((languages, user) => {
+    user.languages.forEach((language) => {
+        if (!languages.includes(language)) {
+            languages.push(language);
+        }
+    });
+    return languages;
+},[]);
+
+console.log(theLanguages);
