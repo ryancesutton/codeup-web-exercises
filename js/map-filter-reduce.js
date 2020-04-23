@@ -56,7 +56,7 @@ const longestEmail = emailArray.reduce((firstEmail, nextEmail) => {
 console.log(longestEmail);
 
 const userNamesString = users.reduce((users, user) => {
-    let userNames = users + user.name;
+    return users + user.name;
 
 },'');
 console.log(userNamesString);
