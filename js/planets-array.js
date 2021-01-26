@@ -50,4 +50,12 @@
 
     console.log("Sorting the planets array.");
     console.log(planets);
+    
+    function returnFirstAndLast(array) {
+        var newArray = [];
+        newArray.push(array[0]);
+        newArray.push(array[array.length -1]);
+        return newArray;
+    }
+    
 })();
