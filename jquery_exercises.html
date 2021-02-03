@@ -16,6 +16,7 @@
             <li class="codeup" id="bird">Bird</li>
             <li class="codeup" id="dizzy">Gillespie</li>
         </ul>
+        <button id="remover">Remove</button>
     </div>
 
 
@@ -46,6 +47,11 @@
     $('h1').click(function(){
         $(this).css('background-color', 'teal');
     });
+
+    $('#remover').click(function(){
+        $('h1').css('background-color', 'white');
+        $('p').css('font-size', '1em');
+    })
 
     $('p').dblclick(function(){
         $(this).css('font-size', '18px');
