@@ -242,7 +242,8 @@
             });
         }
 
-        $("#find").click(function () {
+        $("#find").click(function (e) {
+            e.preventDefault();
             weatherData();
         });
 

@@ -47,7 +47,7 @@
     </table>
 </div>
 
-    <button id="refresh" onClick="window.location.reload();">Refresh</button>
+    <button id="refresh">Refresh</button>
 
 
 
@@ -68,10 +68,12 @@
 
 
             // TODO: Take the data from inventory.json and append it to the products table
+
+
             var generatedHTML = "";
 
 
-            for (var x = 0; x < 4; x++) {
+            for (var x = 0; x < data.length; x++) {
                 console.log(data[x]);
                 console.log(data[x].title);
                 generatedHTML = "<tr><td>" + data[x].title + "</td>" +
@@ -90,7 +92,14 @@
         //       HINT: Your data should come back as a JSON object; use console.log() to inspect
         //             its contents and fields
         //       HINT: You will want to target #insertProducts for your new HTML elements
+
+
+        $("#refresh").click()
+
     })();
+
+
+
 </script>
 
 </body>
