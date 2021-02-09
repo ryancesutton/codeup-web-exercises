@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Weather App</title>
     <script src='https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.css' rel='stylesheet' />
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.css' rel='stylesheet'/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
@@ -12,6 +12,7 @@
         #five-day-forecast {
             margin: 20px;
         }
+
         #map {
             margin: 0 auto;
 
@@ -40,67 +41,10 @@
 
 <div id="five-day-forecast">
     <div class="card-deck">
-        <div class="card">
-            <div class="card-header" id="day-one">
 
-            </div>
-            <ul class="list-group">
-                <li class="list-group-item" id="one-temp"></li>
-                <li class="list-group-item" id="one-descript"></li>
-                <li class="list-group-item" id="one-humid"></li>
-                <li class="list-group-item" id="one-wind"></li>
-                <li class="list-group-item" id="one-pressure"></li>
-            </ul>
-        </div>
-        <div class="card">
-            <div class="card-header" id="day-two">
 
-            </div>
-            <ul class="list-group">
-                <li class="list-group-item" id="two-temp"></li>
-                <li class="list-group-item" id="two-descript"></li>
-                <li class="list-group-item" id="two-humid"></li>
-                <li class="list-group-item" id="two-wind"></li>
-                <li class="list-group-item" id="two-pressure"></li>
-            </ul>
-        </div>
-        <div class="card">
-            <div class="card-header" id="day-three">
 
-            </div>
-            <ul class="list-group">
-                <li class="list-group-item" id="three-temp"></li>
-                <li class="list-group-item" id="three-descript"></li>
-                <li class="list-group-item" id="three-humid"></li>
-                <li class="list-group-item" id="three-wind"></li>
-                <li class="list-group-item" id="three-pressure"></li>
-            </ul>
-        </div>
-        <div class="card">
-            <div class="card-header" id="day-four">
-
-            </div>
-            <ul class="list-group">
-                <li class="list-group-item" id="four-temp"></li>
-                <li class="list-group-item" id="four-descript"></li>
-                <li class="list-group-item" id="four-humid"></li>
-                <li class="list-group-item" id="four-wind"></li>
-                <li class="list-group-item" id="four-pressure"></li>
-            </ul>
-        </div>
-        <div class="card">
-            <div class="card-header" id="day-five">
-
-            </div>
-            <ul class="list-group">
-                <li class="list-group-item" id="five-temp"></li>
-                <li class="list-group-item" id="five-descript"></li>
-                <li class="list-group-item" id="five-humid"></li>
-                <li class="list-group-item" id="five-wind"></li>
-                <li class="list-group-item" id="five-pressure"></li>
-            </ul>
-        </div>
-    </div>
+</div>
 </div>
 
 <div id='map'></div>
@@ -127,9 +71,8 @@
         weatherData();
 
 
-
-        function weatherData(){
-
+        function weatherData() {
+            $(".card-deck").html(" ");
             var cityInput = $("#inputCity");
 
             $.get(url, {
@@ -137,78 +80,41 @@
                 "q": cityInput.val(),
                 "units": "imperial"
             }).done(function (data) {
+
                 console.log(data);
                 $("#current-city").text("Current City: " + data.city.name);
-                // var HTML = "";
                 for (var x = 0; x < data.list.length; x++) {
-                    if(x === 0) {
-                        console.log(data.list[0].main.temp);
+                    if (x === 0 || x === 8 || x === 16 || x === 24 || x === 32) {
+                        var html = " ";
+                        // console.log(data.list[0].main.temp);
                         var date = data.list[x].dt_txt;
                         var splitDate = date.split(" ");
 
-                        $("#day-one").text(splitDate[0]);
-                        $("#one-temp").text("Temp: " + data.list[x].main.temp + "");
-                        $("#one-descript").text("Description: " + data.list[x].weather[0].description);
-                        $("#one-humid").text("Humidity: " + data.list[x].main.humidity);
-                        $("#one-wind").text("Wind: " + data.list[x].wind.speed);
-                        $("#one-pressure").text("Pressure: " + data.list[x].main.humidity)
+                        html += "<div class=\"card\">"
+                        html += "<div class=\"card-header\" id=\"day\">" + splitDate[0] + "</div>"
+                        html += "<ul class=\"list-group\">"
+                        html += "<li class=\"list-group-item\" id=\"temp\">" + "Temp: " + data.list[x].main.temp + "" + "</li>"
+                        html += "<li class=\"list-group-item\" id=\"descript\">" + "Description: " + data.list[x].weather[0].description + "</li>"
+                        html += "<li class=\"list-group-item\" id=\"humid\">" + "Humidity: " + data.list[x].main.humidity + "</li>"
+                        html += "<li class=\"list-group-item\" id=\"wind\">" + "Wind: " + data.list[x].wind.speed + "</li>"
+                        html += "<li class=\"list-group-item\" id=\"pressure\">" + "Pressure: " + data.list[x].main.humidity + "</li>"
+                        html += "</ul>"
+                        html += "</div>"
+
+                        $(".card-deck").append(html);
 
 
-                    } else if (x === 8) {
-                        console.log(data.list[8].main.temp);
-                        var dateTwo = data.list[x].dt_txt;
-                        var splitDateTwo = dateTwo.split(" ");
-
-                        $("#day-two").text(splitDateTwo[0]);
-                        $("#two-temp").text("Temp: " + data.list[x].main.temp + "");
-                        $("#two-descript").text("Description: " + data.list[x].weather[0].description);
-                        $("#two-humid").text("Humidity: " + data.list[x].main.humidity);
-                        $("#two-wind").text("Wind: " + data.list[x].wind.speed);
-                        $("#two-pressure").text("Pressure: " + data.list[x].main.humidity)
-
-
-                    } else if (x === 16) {
-                        console.log(data.list[16].main.temp);
-                        var dateThree = data.list[x].dt_txt;
-                        var splitDateThree = dateThree.split(" ");
-
-                        $("#day-three").text(splitDateThree[0]);
-                        $("#three-temp").text("Temp: " + data.list[x].main.temp + "");
-                        $("#three-descript").text("Description: " + data.list[x].weather[0].description);
-                        $("#three-humid").text("Humidity: " + data.list[x].main.humidity);
-                        $("#three-wind").text("Wind: " + data.list[x].wind.speed);
-                        $("#three-pressure").text("Pressure: " + data.list[x].main.humidity)
-
-
-                    } else if (x === 24) {
-                        console.log(data.list[24].main.temp);
-                        var dateFour = data.list[x].dt_txt;
-                        var splitDateFour = dateFour.split(" ");
-
-                        $("#day-four").text(splitDateFour[0]);
-                        $("#four-temp").text("Temp: " + data.list[x].main.temp + "");
-                        $("#four-descript").text("Description: " + data.list[x].weather[0].description);
-                        $("#four-humid").text("Humidity: " + data.list[x].main.humidity);
-                        $("#four-wind").text("Wind: " + data.list[x].wind.speed);
-                        $("#four-pressure").text("Pressure: " + data.list[x].main.humidity)
-
-
-                    } else if (x === 32) {
-                        console.log(data.list[32].main.temp);
-                        var dateFive = data.list[x].dt_txt;
-                        var splitDateFive = dateFive.split(" ");
-
-                        $("#day-five").text(splitDateFive[0]);
-                        $("#five-temp").text("Temp: " + data.list[x].main.temp + "");
-                        $("#five-descript").text("Description: " + data.list[x].weather[0].description);
-                        $("#five-humid").text("Humidity: " + data.list[x].main.humidity);
-                        $("#five-wind").text("Wind: " + data.list[x].wind.speed);
-                        $("#five-pressure").text("Pressure: " + data.list[x].main.humidity)
-
-
+                        // $("#day").text(splitDate[0]);
+                        // $("#temp").text("Temp: " + data.list[x].main.temp + "");
+                        // $("#descript").text("Description: " + data.list[x].weather[0].description);
+                        // $("#humid").text("Humidity: " + data.list[x].main.humidity);
+                        // $("#wind").text("Wind: " + data.list[x].wind.speed);
+                        // $("#pressure").text("Pressure: " + data.list[x].main.humidity)
                     }
+                }
 
-                } mapboxgl.accessToken = mapboxToken;
+
+                mapboxgl.accessToken = mapboxToken;
                 var map = new mapboxgl.Map({
                     container: 'map',
                     style: 'mapbox://styles/mapbox/outdoors-v11',
@@ -237,8 +143,6 @@
                 }
 
                 marker.on('dragend', onDragEnd);
-
-
 
 
             }).fail(function (errors) {
