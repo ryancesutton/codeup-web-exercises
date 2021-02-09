@@ -82,20 +82,20 @@
             }).done(function (data) {
                 console.log(data);
                 $("#current-city").text("Current City: " + data.city.name);
-                for (var x = 0; x < data.list.length; x++) {
-                    if (x === 0 || x === 8 || x === 16 || x === 24 || x === 32) {
+                for (var i = 0; i < data.list.length; i++) {
+                    if (i === 0 || i === 8 || i === 16 || i === 24 || i === 32) {
                         var html = " ";
-                        var date = data.list[x].dt_txt;
+                        var date = data.list[i].dt_txt;
                         var splitDate = date.split(" ");
 
                         html += "<div class=\"card\">"
                         html += "<div class=\"card-header\" id=\"day\">" + splitDate[0] + "</div>"
                         html += "<ul class=\"list-group\">"
-                        html += "<li class=\"list-group-item\" id=\"temp\">" + "Temp: " + data.list[x].main.temp + "" + "</li>"
-                        html += "<li class=\"list-group-item\" id=\"descript\">" + "Description: " + data.list[x].weather[0].description + "</li>"
-                        html += "<li class=\"list-group-item\" id=\"humid\">" + "Humidity: " + data.list[x].main.humidity + "</li>"
-                        html += "<li class=\"list-group-item\" id=\"wind\">" + "Wind: " + data.list[x].wind.speed + "</li>"
-                        html += "<li class=\"list-group-item\" id=\"pressure\">" + "Pressure: " + data.list[x].main.humidity + "</li>"
+                        html += "<li class=\"list-group-item\" id=\"temp\">" + "Temp: " + data.list[i].main.temp + "" + "</li>"
+                        html += "<li class=\"list-group-item\" id=\"descript\">" + "Description: " + data.list[i].weather[0].description + "</li>"
+                        html += "<li class=\"list-group-item\" id=\"humid\">" + "Humidity: " + data.list[i].main.humidity + "</li>"
+                        html += "<li class=\"list-group-item\" id=\"wind\">" + "Wind: " + data.list[i].wind.speed + "</li>"
+                        html += "<li class=\"list-group-item\" id=\"pressure\">" + "Pressure: " + data.list[i].main.humidity + "</li>"
                         html += "</ul>"
                         html += "</div>"
 
