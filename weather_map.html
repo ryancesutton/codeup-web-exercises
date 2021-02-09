@@ -80,13 +80,11 @@
                 "q": cityInput.val(),
                 "units": "imperial"
             }).done(function (data) {
-
                 console.log(data);
                 $("#current-city").text("Current City: " + data.city.name);
                 for (var x = 0; x < data.list.length; x++) {
                     if (x === 0 || x === 8 || x === 16 || x === 24 || x === 32) {
                         var html = " ";
-                        // console.log(data.list[0].main.temp);
                         var date = data.list[x].dt_txt;
                         var splitDate = date.split(" ");
 
@@ -103,13 +101,6 @@
 
                         $(".card-deck").append(html);
 
-
-                        // $("#day").text(splitDate[0]);
-                        // $("#temp").text("Temp: " + data.list[x].main.temp + "");
-                        // $("#descript").text("Description: " + data.list[x].weather[0].description);
-                        // $("#humid").text("Humidity: " + data.list[x].main.humidity);
-                        // $("#wind").text("Wind: " + data.list[x].wind.speed);
-                        // $("#pressure").text("Pressure: " + data.list[x].main.humidity)
                     }
                 }
 
@@ -132,18 +123,12 @@
                 function onDragEnd() {
                     var lngLat = marker.getLngLat();
                     reverseGeocode({lng: lngLat.lng, lat: lngLat.lat}, mapboxToken).then(function (results) {
-                        // results.toString();
-                        // results.split(",");
-                        console.log(results.features[2].text);
                         cityInput.val(results.features[2].text);
                         weatherData();
-
                     })
 
                 }
-
                 marker.on('dragend', onDragEnd);
-
 
             }).fail(function (errors) {
                 console.error(errors);
