@@ -130,11 +130,11 @@
 
         function weatherData(){
 
-            var cityInput = $("#inputCity").val();
+            var cityInput = $("#inputCity");
 
             $.get(url, {
                 "APPID": OWM_KEY,
-                "q": cityInput,
+                "q": cityInput.val(),
                 "units": "imperial"
             }).done(function (data) {
                 console.log(data);
@@ -223,18 +223,22 @@
                     .addTo(map);
 
 
+                function onDragEnd() {
+                    var lngLat = marker.getLngLat();
+                    reverseGeocode({lng: lngLat.lng, lat: lngLat.lat}, mapboxToken).then(function (results) {
+                        // results.toString();
+                        // results.split(",");
+                        console.log(results.features[2].text);
+                        cityInput.val(results.features[2].text);
+                        weatherData();
+
+                    })
+
+                }
+
+                marker.on('dragend', onDragEnd);
 
 
-
-                var lngLat = marker.getLngLat();
-
-                marker.on('dragend',reverseGeocode({lng: lngLat.lng, lat: lngLat.lat}, mapboxToken).then(function(results) {
-                    var getCity = results.split(",");
-                    cityInput = getCity[1];
-
-                    console.log(cityInput);
-                    // weatherData();
-                }));
 
 
             }).fail(function (errors) {
