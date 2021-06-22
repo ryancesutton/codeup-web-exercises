@@ -42,57 +42,61 @@
         </div>
     </div>
     <h2>Build your own pizza!</h2>
-    <ul class="nav nav-tabs" role="tablist">
+    <ul class="nav nav-tabs" id="nav-tab" role="tablist">
         <li class="nav-item">
-            <a class="nav-link active" id="size-tab" data-toggle="tab" role="tab" href="#size-type" aria-controls="home"
+            <a class="nav-link active" id="size-tab" data-toggle="tab" role="tab" href="#size-type"
+               aria-controls="size-type"
                aria-selected="true">
                 <span class="badge badge-secondary">1</span>
                 Size and crust</a>
 
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="cheese-tab" data-toggle="tab" role="tab" href="#cheese-sauce" aria-controls="home"
+            <a class="nav-link" id="cheese-tab" data-toggle="tab" role="tab" href="#cheese-sauce"
+               aria-controls="cheese-sauce"
                aria-selected="false">
                 <span class="badge badge-secondary">2</span>
                 Cheese and sauce</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="toppings-tab" data-toggle="tab" role="tab" href="#toppings" aria-controls="home"
+            <a class="nav-link" id="toppings-tab" data-toggle="tab" role="tab" href="#toppings" aria-controls="toppings"
                aria-selected="false">
                 <span class="badge badge-secondary">3</span>
                 Toppings</a>
         </li>
     </ul>
-    <div class="card tab-content" id="size-type" role="tabpanel" aria-labelledby="size-tab">
-        <div class="tab-pane fade show active"></div>
-        <div class="card-header blue">
-            Size and crust
-        </div>
-        <div class="card-body">
-            <div class="card">
-                <form action="">
-                    <div class="card-header">
-                        Hand Tossed
-                    </div>
-                    <div class="card-body">
-                        <p class="card-text">Garlic seasoned crust with a rich, buttery taste.</p>
-                        <ul class="list-group">
-
-                            <li class="list-group-item"><label for="small-hand"><input id="small-hand" type="radio"
-                                                                                       name="size-crust">Small
-                                (10")</label>
-                            </li>
-
-
-                            <li class="list-group-item"><label for="med-hand"><input id="med-hand" type="radio"
-                                                                                     name="size-crust">Medium (12")
-                            </label>
-                            </li>
-
-                        </ul>
-                    </div>
-                </form>
+    <div class="tab-content">
+        <div class="card tab-pane fade show active" id="size-type" role="tabpanel" aria-labelledby="size-tab">
+            <div class="card-header blue">
+                Size and crust
             </div>
+            <div class="card-body">
+                <div class="card">
+                    <form action="">
+                        <div class="card-header">
+                            Hand Tossed
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">Garlic seasoned crust with a rich, buttery taste.</p>
+                            <ul class="list-group">
+
+                                <li class="list-group-item"><label for="small-hand"><input id="small-hand" type="radio"
+                                                                                           name="size-crust">Small
+                                    (10")</label>
+                                </li>
+
+
+                                <li class="list-group-item"><label for="med-hand"><input id="med-hand" type="radio"
+                                                                                         name="size-crust">Medium (12")
+                                </label>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+
+
             <div class="card">
                 <div class="card-header">
                     Crispy Thin
@@ -119,90 +123,87 @@
             <footer>
                 <a href="#" class="btn btn-primary" id="next-page">Next step ></a>
             </footer>
-        </div>
-        </form>
-    </div>
-    <div class="card tab-content" id="cheese-sauce" role="tabpanel" aria-labelledby="cheese-tab">
-        <div class="tab-pane fade show active"></div>
-        <div class="card-header blue">
-            Cheese and sauce
-        </div>
-        <div class="card-body">
-            <div class="card">
-                <form action="">
-                    <div class="card-header">
-                        Cheese
-                    </div>
-                    <div class="card-body">
-                        <p class="card-text">How Much?</p>
-                        <select class="how-much-cheese">
-                            <option value="light">Light</option>
-                            <option value="regular" selected>Regular</option>
-                            <option value="extra">Extra</option>
-                        </select>
-                    </div>
-                </form>
             </div>
-            <div class="card">
-                <div class="card-header">
-                    Sauce
-                </div>
-                <div class="card-body">
-                    <div class="sauce-type">
-                        <p class="card-text">What type?</p>
-                        <select class="what-type">
-                            <option value="alfredo">Alfredo - White</option>
-                            <option value="tomato" selected>Robust Inspired Tomato Sauce</option>
-                            <option value="spicy">Spicy</option>
-                        </select>
-                    </div>
-                    <div class="how-much-sauce">
-                        <p>How much?</p>
-                        <select class="how-much-sauce">
-                            <option value="light-sauce">Light</option>
-                            <option value="reg-sauce" selected>Regular</option>
-                            <option value="extra-sauce">Extra</option>
-                        </select>
-                    </div>
-                </div>
+        </div>
+        <div class="card tab-pane fade" id="cheese-sauce" role="tabpanel" aria-labelledby="cheese-tab">
+            <div class="card-header blue">
+                Cheese and sauce
             </div>
-            <footer>
-                <a href="#" class="btn btn-primary" id="previous-next">Next step ></a>
-            </footer>
-        </div>
-        </form>
-    </div>
-    <div class="card tab-content" id="toppings" role="tabpanel" aria-labelledby="toppings-tab">
-        <div class="tab-pane fade show active"></div>
-        <div class="card-header blue">
-            Toppings
-        </div>
-        <div class="card-body">
-            <div class="card">
-                <div class="card-header">
-                    Hand Tossed
-                </div>
-                <div class="card-body">
+            <div class="card-body">
+                <div class="card">
                     <form action="">
-                        <p class="card-text">Garlic seasoned crust with a rich, buttery taste.</p>
+                        <div class="card-header">
+                            Cheese
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">How Much?</p>
+                            <select class="how-much-cheese">
+                                <option value="light">Light</option>
+                                <option value="regular" selected>Regular</option>
+                                <option value="extra">Extra</option>
+                            </select>
+                        </div>
                     </form>
                 </div>
-
-            </div>
-            <div class="card">
-                <div class="card-header">
-                    Crispy Thin
+                <div class="card">
+                    <div class="card-header">
+                        Sauce
+                    </div>
+                    <div class="card-body">
+                        <div class="sauce-type">
+                            <p class="card-text">What type?</p>
+                            <select class="what-type">
+                                <option value="alfredo">Alfredo - White</option>
+                                <option value="tomato" selected>Robust Inspired Tomato Sauce</option>
+                                <option value="spicy">Spicy</option>
+                            </select>
+                        </div>
+                        <div class="how-much-sauce">
+                            <p>How much?</p>
+                            <select class="how-much-sauce">
+                                <option value="light-sauce">Light</option>
+                                <option value="reg-sauce" selected>Regular</option>
+                                <option value="extra-sauce">Extra</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <p class="card-text">Thin enough for optimum crispy to crunchy ratio.</p>
-
-                </div>
+                <footer>
+                    <a href="#" class="btn btn-primary" id="previous-next">Next step ></a>
+                </footer>
             </div>
-            <footer>
-                <a href="#" class="btn btn-primary" id="next">Next step ></a>
-            </footer>
         </div>
-        </form>
+
+        <div class="card tab-pane fade" id="toppings" role="tabpanel" aria-labelledby="toppings-tab">
+            <div class="card-header blue">
+                Toppings
+            </div>
+            <div class="card-body">
+                <div class="card">
+                    <div class="card-header">
+                        Hand Tossed
+                    </div>
+                    <div class="card-body">
+                        <form action="">
+                            <p class="card-text">Garlic seasoned crust with a rich, buttery taste.</p>
+                        </form>
+                    </div>
+
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        Crispy Thin
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Thin enough for optimum crispy to crunchy ratio.</p>
+
+                    </div>
+                </div>
+                <footer>
+                    <a href="#" class="btn btn-primary" id="next">Next step ></a>
+                </footer>
+            </div>
+        </div>
     </div>
 </div>
 

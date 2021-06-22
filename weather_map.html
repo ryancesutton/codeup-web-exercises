@@ -99,6 +99,7 @@
                         html += "</ul>"
                         html += "</div>"
 
+
                         $(".card-deck").append(html);
 
                     }
@@ -117,6 +118,7 @@
                     draggable: true
                 })
                     .setLngLat([data.city.coord.lon, data.city.coord.lat])
+                    .flyTo()
                     .addTo(map);
 
 
