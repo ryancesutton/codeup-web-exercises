@@ -29,7 +29,7 @@
 
 function getLastEventDateByUsername(username) {
     let GITHUB_API_URL = `https://api.github.com/users/${username}/events/public`
-    return fetch(GITHUB_API_URL, {headers: {'Authorization': `token ${GITHUB_API_KEY}`}})
+    return fetch(GITHUB_API_URL, {headers: {'Authorization': `token ${GIT_TOKEN}`}})
         .then(response => response.json()
             .then( listOfEvents => {
 
