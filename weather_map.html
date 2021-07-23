@@ -43,8 +43,7 @@
     <div class="card-deck">
 
 
-
-</div>
+    </div>
 </div>
 
 <div id='map'></div>
@@ -69,7 +68,6 @@
         var url = "http://api.openweathermap.org/data/2.5/forecast";
 
         weatherData();
-
 
         function weatherData() {
             $(".card-deck").html(" ");
@@ -106,43 +104,38 @@
                 }
 
 
+                var longitude = data.city.coord.lon;
+                var latitude = data.city.coord.lat;
+
                 mapboxgl.accessToken = mapboxToken;
                 var map = new mapboxgl.Map({
                     container: 'map',
                     style: 'mapbox://styles/mapbox/outdoors-v11',
-                    center: [data.city.coord.lon, data.city.coord.lat],
-                    zoom: 14
+                    center: [longitude, latitude],
+                    zoom: 10
                 });
 
                 var marker = new mapboxgl.Marker({
                     draggable: true
                 })
-                    .setLngLat([data.city.coord.lon, data.city.coord.lat])
-                    .flyTo()
+                    .setLngLat([longitude, latitude])
                     .addTo(map);
 
 
-                function onDragEnd() {
-                    var lngLat = marker.getLngLat();
-                    reverseGeocode({lng: lngLat.lng, lat: lngLat.lat}, mapboxToken).then(function (results) {
-                        cityInput.val(results.features[2].text);
-                        weatherData();
-                    })
 
-                }
-                marker.on('dragend', onDragEnd);
+                }).fail(function (errors) {
+                    console.error(errors);
+                });
+            }
 
-            }).fail(function (errors) {
-                console.error(errors);
+            $("#find").click(function (e) {
+                e.preventDefault();
+                weatherData();
             });
+
         }
 
-        $("#find").click(function (e) {
-            e.preventDefault();
-            weatherData();
-        });
-
-    })();
+    )();
 
 
 </script>

@@ -61,14 +61,17 @@
         "use strict";
         // TODO: Create an ajax GET request for /data/inventory.json
 
+        makeRequest();
 
-        $.get("data/inventory.json").done(function (data, status) {
+        function makeRequest () {
+            $.get("data/inventory.json").done(function (data, status) {
+
             console.log(status);
             console.log(data);
 
 
             // TODO: Take the data from inventory.json and append it to the products table
-
+            $("#insertProducts").empty();
 
             var generatedHTML = "";
 
@@ -89,12 +92,13 @@
         }).fail(function (errors) {
             console.error(errors);
         });
+    }
         //       HINT: Your data should come back as a JSON object; use console.log() to inspect
         //             its contents and fields
         //       HINT: You will want to target #insertProducts for your new HTML elements
 
 
-        $("#refresh").click()
+        $("#refresh").click(makeRequest);
 
     })();
 
