@@ -10,8 +10,11 @@
     <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
+
+<!--NAVBAR -->
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Pizza world</a>
+    <a class="navbar-brand" href="#">Pizza World</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -32,15 +35,24 @@
                 </form>
             </li>
         </ul>
-        <a class="nav-link sign-up" href="#"><i class="fas fa-user"></i>Sign up</a>
+        <a class="nav-link sign-up" href="#"><i class="fas fa-user mr-1"></i>Sign up</a>
     </div>
 </nav>
+
+<!--MAIN CONTAINER-->
+
 <div class="container">
-    <div class="jumbotron jumbotron-fluid">
+
+<!--JUMBOTRON-->
+
+    <div class="jumbotron jumbotron-fluid mt-5">
         <div class="welcome">
             <h1 class="display-4">Welcome to Pizza World!</h1>
         </div>
     </div>
+
+<!--NAVTABS-->
+
     <h2>Build your own pizza!</h2>
     <ul class="nav nav-tabs" id="nav-tab" role="tablist">
         <li class="nav-item">
@@ -65,73 +77,66 @@
                 Toppings</a>
         </li>
     </ul>
+
+<!--CARDS CONTAINER-->
     <div class="tab-content">
+
+<!--SIZE AND CRUST CARD-->
+<!--DEFAULT TO SHOW-->
         <div class="card tab-pane fade show active" id="size-type" role="tabpanel" aria-labelledby="size-tab">
             <div class="card-header blue">
-                Size and crust
+                Choose size and crust
             </div>
             <div class="card-body">
                 <div class="card">
-                    <form action="">
                         <div class="card-header">
                             Hand Tossed
                         </div>
                         <div class="card-body">
                             <p class="card-text">Garlic seasoned crust with a rich, buttery taste.</p>
                             <ul class="list-group">
-
                                 <li class="list-group-item"><label for="small-hand"><input id="small-hand" type="radio"
                                                                                            name="size-crust">Small
                                     (10")</label>
                                 </li>
-
-
                                 <li class="list-group-item"><label for="med-hand"><input id="med-hand" type="radio"
                                                                                          name="size-crust">Medium (12")
                                 </label>
                                 </li>
-
                             </ul>
                         </div>
-                    </form>
                 </div>
-
-
-            <div class="card">
-                <div class="card-header">
-                    Crispy Thin
+                <div class="card">
+                    <div class="card-header">
+                        Crispy Thin
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Thin enough for optimum crispy to crunchy ratio.</p>
+                        <ul class="list-group">
+                            <li class="list-group-item"><label for="med-thin"><input id="med-thin" type="radio" name="size-crust">Medium (12")
+                            </label>
+                            </li>
+                            <li class="list-group-item"><label for="large-thin"><input id="large-thin" type="radio" name="size-crust">Large
+                                (14")
+                            </label>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <p class="card-text">Thin enough for optimum crispy to crunchy ratio.</p>
-                    <ul class="list-group">
-
-                        <li class="list-group-item"><label for="med-thin"><input id="med-thin" type="radio"
-                                                                                 name="size-crust">Medium (12")
-                        </label>
-                        </li>
-
-
-                        <li class="list-group-item"><label for="large-thin"><input id="large-thin" type="radio"
-                                                                                   name="size-crust">Large
-                            (14")
-                        </label>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
-            <footer>
-                <a href="#" class="btn btn-primary" id="next-page">Next step ></a>
-            </footer>
+                <footer>
+                    <a href="#" class="btn btn-primary" id="next-page">Next step ></a>
+                </footer>
             </div>
         </div>
+
+<!--CHEESE AND SAUCE CARD-->
+
         <div class="card tab-pane fade" id="cheese-sauce" role="tabpanel" aria-labelledby="cheese-tab">
             <div class="card-header blue">
-                Cheese and sauce
+                Choose cheese and sauce
             </div>
             <div class="card-body">
                 <div class="card">
-                    <form action="">
                         <div class="card-header">
                             Cheese
                         </div>
@@ -143,7 +148,6 @@
                                 <option value="extra">Extra</option>
                             </select>
                         </div>
-                    </form>
                 </div>
                 <div class="card">
                     <div class="card-header">
@@ -158,7 +162,7 @@
                                 <option value="spicy">Spicy</option>
                             </select>
                         </div>
-                        <div class="how-much-sauce">
+                        <div class="how-much-sauce mt-3">
                             <p>How much?</p>
                             <select class="how-much-sauce">
                                 <option value="light-sauce">Light</option>
@@ -169,38 +173,61 @@
                     </div>
                 </div>
                 <footer>
-                    <a href="#" class="btn btn-primary" id="previous-next">Next step ></a>
+                    <div class="btn-group">
+                        <a href="#" class="btn btn-primary" id="previous">< Previous step</a>
+                        <a href="#" class="btn btn-primary" id="previous-next">Next step ></a>
+                    </div>
                 </footer>
             </div>
         </div>
 
+<!--TOPPINGS TAB-->
+
         <div class="card tab-pane fade" id="toppings" role="tabpanel" aria-labelledby="toppings-tab">
             <div class="card-header blue">
-                Toppings
+                Choose toppings
             </div>
             <div class="card-body">
                 <div class="card">
-                    <div class="card-header">
-                        Hand Tossed
-                    </div>
-                    <div class="card-body">
-                        <form action="">
-                            <p class="card-text">Garlic seasoned crust with a rich, buttery taste.</p>
-                        </form>
-                    </div>
-
+                    <form action="">
+                        <div class="card-header">
+                            Choose meats
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group">
+                                <li class="list-group-item"><label for="beef"><input id="beef" type="checkbox" name="meat">Beef</label>
+                                </li>
+                                <li class="list-group-item"><label for="ham"><input id="ham" type="checkbox" name="meat">Ham
+                                </label>
+                                </li>
+                                <li class="list-group-item"><label for="steak"><input id="steak" type="checkbox" name="meat">Philly Steak</label>
+                                </li>
+                                <li class="list-group-item"><label for="bacon"><input id="bacon" type="checkbox" name="meat">Bacon</label>
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
                 </div>
                 <div class="card">
                     <div class="card-header">
-                        Crispy Thin
+                        Choose veggies
                     </div>
                     <div class="card-body">
-                        <p class="card-text">Thin enough for optimum crispy to crunchy ratio.</p>
-
+                        <ul class="list-group">
+                            <li class="list-group-item"><label for="peppers"><input id="peppers" type="checkbox" name="veggies">Green Peppers</label>
+                            </li>
+                            <li class="list-group-item"><label for="onions"><input id="onions" type="checkbox" name="veggies">Onions
+                            </label>
+                            </li>
+                            <li class="list-group-item"><label for="mushrooms"><input id="mushrooms" type="checkbox" name="veggies">Mushrooms</label>
+                            </li>
+                            <li class="list-group-item"><label for="jalapeno"><input id="jalapeno" type="checkbox" name="veggies">Jalapeño</label>
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 <footer>
-                    <a href="#" class="btn btn-primary" id="next">Next step ></a>
+                    <a href="#" class="btn btn-primary" id="checkout">Checkout <i class="fas fa-shopping-cart"></i></a>
                 </footer>
             </div>
         </div>
